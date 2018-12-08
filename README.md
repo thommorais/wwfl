@@ -1,6 +1,4 @@
-# webpack4-starter-kit
-
-Word With Friends
+# Word With Friends
 
 ## Requirements
 
