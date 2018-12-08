@@ -5,9 +5,14 @@
   z-index: 9
   height: 100%
   width: 100%
-  display: none
+  display: flex
   justify-content: center
   align-items: center
+  background: rgba($c1, 0.7)
+
+  &:not(.open)
+    opacity: 0
+    pointer-events: none
 
   .response
     padding: 20px 10px

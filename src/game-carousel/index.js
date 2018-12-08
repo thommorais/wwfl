@@ -1,6 +1,8 @@
 import handleAnswer from './handleAnswer'
+import Modal from '../components/custom-modal'
 
 export default function carousel(Swiper) {
+  const modal = new Modal()
   const game = new Swiper('.swiper-container', {
     allowTouchMove : false,
     pagination     : {
@@ -11,7 +13,6 @@ export default function carousel(Swiper) {
 
   const answers = [].slice.call(document.querySelectorAll('.answer'))
 
-  answers.forEach(answer => handleAnswer(answer, game))
-
-  game.on('reachEnd', () => console.log('teste'))
+  answers.forEach(answer => handleAnswer(answer, game, modal))
+  game.on('reachEnd', () => modal.start())
 }

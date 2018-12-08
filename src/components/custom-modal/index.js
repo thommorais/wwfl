@@ -1,21 +1,35 @@
-import './styles.pcss'
-import view from './template.html'
-import { html } from '../helper'
-
-export default class ZyngaModal extends HTMLElement {
+let instance = false
+export default class Modal {
   constructor() {
-    super()
-    this.attachShadow({ mode: 'open' });
+    if (instance) {
+      return instance
+    }
+
+    instance = this
+    this.modals = {}
+    this.isOpen = null
+    this.started = false
   }
 
-  static template() {
-    return html`${view}`
+  close() {
+    if (!this.isOpen) return
+    this.isOpen.classList.remove('open')
   }
 
-  connectedCallback() {
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
+  open(modal) {
+    if (!this.started || !modal) return
+
+    this.close()
+
+    if (!this.modals[modal]) {
+      this.modals[modal] = document.querySelector(`[data-id="${modal}"]`)
+    }
+
+    this.modals[modal].classList.add('open')
+    this.isOpen = this.modals[modal]
+  }
+
+  start() {
+    this.started = true
   }
 }
-
-const template = document.createElement('template')
-template.innerHTML = ZyngaModal.template()
