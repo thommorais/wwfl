@@ -1,7 +1,7 @@
 {
   "name": "word-with-friends-2",
   "version": "1.0.5",
-  "description": "Webpack 4 starter kit",
+  "description": "Word With Friends 2",
   "main": "./src/index.js",
   "scripts": {
     "dev": "node ./config/dev",
@@ -13,9 +13,8 @@
     "styles": "stylelint ./src/*.sass --fix",
     "httpserver": "http-server ./dist -p 8082 --silent"
   },
-  "author": "Giorgio Gamberoni <giorgio.gamberoni@gmail.com> (https://github.com/king-prawns)",
+  "author": "Thom Morais <thommorais@gmail.com> (https://github.com/thommorais)",
   "license": "MIT",
-  "homepage": "https://github.com/king-prawns/webpack4-starter-kit#readme",
   "ava": {
     "files": [
       "./src/**/*test.js"
