@@ -9,6 +9,9 @@ export default class Modal {
     this.modals = {}
     this.isOpen = null
     this.started = false
+
+    this.closeButtons = [].slice.call(document.querySelectorAll('.close-modal'))
+    this.closeButtons.forEach(btn => btn.addEventListener('click', () => this.close()))
   }
 
   close() {
