@@ -1,0 +1,28 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": "**/*.js",
+  "rules": {
+    "color-hex-case": "upper",
+    "max-empty-lines": 2,
+    "max-nesting-depth": 3,
+    "no-descending-specificity": null,
+    "selector-type-no-unknown": null,
+    "at-rule-empty-line-before": null,
+    "rule-empty-line-before": null,
+    "string-quotes": "single",
+    "at-rule-no-unknown": null,
+    "block-opening-brace-space-before" : null,
+    "block-closing-brace-space-before" : null,
+    "declaration-block-trailing-semicolon": null,
+    "custom-property-empty-line-before": null,
+    "block-closing-brace-newline-before": null,
+    "declaration-empty-line-before": null,
+    "comment-whitespace-inside": null,
+    "block-opening-brace-space-after" : null,
+    "selector-list-comma-newline-after": "never-multi-line",
+    "no-duplicate-selectors" : null,
+    "property-no-unknown": [true, {
+      "ignoreProperties": ["contain", "appearance", "/^font-/"],
+    }]
+  }
+}
