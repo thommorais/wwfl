@@ -17,7 +17,6 @@ fs.remove(path.resolve(__dirname, '../dist'), (err) => {
     console.log('\n')
 
     if (werr || stats.hasErrors()) {
-      console.log(stats)
       if (stats) {
         console.log(
           stats.toString({

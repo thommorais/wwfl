@@ -1,0 +1,152 @@
+#interactive-game_el
+  text-align: center
+
+  > h2, h3
+    margin-top: 0
+    color: $c0
+    font-weight: normal
+  h3
+    font-size: rem(18px)
+    font-family: default-font(300)
+
+  h2
+    margin-top: 0
+    margin-bottom: 10px
+    font-size: rem(22px)
+
+  @include break-max(769px)
+    margin: 0 auto
+    max-width: 100%
+
+  @include desktop
+    width: 37%
+    max-width: 420px
+    padding: 0 20px
+
+.oxford-logo
+  max-width: 180px
+  height: auto
+
+.question
+  margin-left: auto
+  margin-right: auto
+  max-width: 330px
+  color: $c1
+  font-weight: normal
+  font-family: default-font(300)
+
+.answers
+  &.answered
+    .answer::after
+      animation: answereds 0.2s 0.5s $move forwards
+
+.answer
+  position: relative
+  max-width: 320px;
+  margin: 0 auto 12px
+  padding: 12px 20px
+  border-radius: 50px
+  overflow: hidden
+  cursor: pointer
+
+  &.right::after
+    background: $c3
+  &.wrong::after
+    background: $c2
+
+  &::after, &::before
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 1
+    content: ''
+    height: 100%
+    border-radius: 50px
+  &::before
+    width: 100%
+    background: $c0
+  &::after
+    background: $c4
+    width: var(--size)
+    transform-origin: 0
+    transition: transform $enter 0.2s
+    transform: scale3d(0, 1, 1)
+
+  span
+    color: $c5
+    font-size: rem(14px)
+    font-family: default-font(500)
+
+h6, span
+  position: relative
+  z-index: 2
+  text-shadow: none
+h6
+  margin: 0
+  display: block
+  font-size: rem(18px)
+  font-family: default-font(500)
+  font-weight: normal
+
+.question-counter
+  position: relative
+  margin: 15px auto 18px
+  max-width: 180px
+  text-align: center
+  color: $c1
+  font-size: rem(16px)
+  opacity: 0.5
+  h5
+    font-weight: normal
+    margin: 0 10px
+    text-shadow: none
+
+  &::after, &::before
+    content: ''
+    height: 1px
+    flex: 1
+    background: rgba($c1, 0.8)
+
+.oxford-explains-btn
+  position: relative
+  margin-left: auto
+  margin-right: auto
+  width: 100%
+  max-width: 320px
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 12px 30px
+  border: 0
+  border-radius: 50px
+  background: $c6
+  color: $c0
+  font-size: rem(16px)
+  font-family: default-font(700)
+  text-decoration: none
+  overflow: hidden
+  .progress
+    position: absolute
+    z-index: 0
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    border-radius: 50px
+    background: darken($c6, 8)
+    transform-origin: 0
+    transform: scale3d(0, 1, 1)
+
+  #icon-lupe
+    position: relative
+    margin-right: 5px
+    fill: $c0
+    height: 28px
+    width: 28px
+    pointer-events: none
+
+@keyframes answereds
+  0%
+    transform: scale3d(0, 1, 1)
+  100%
+    transform: scale3d(1, 1, 1)

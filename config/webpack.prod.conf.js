@@ -17,7 +17,7 @@ module.exports = merge(base, {
   // devtool : 'source-map', // remove this comment if you want JS source maps
   output : {
     path       : path.resolve(__dirname, '../dist'),
-    publicPath : '/',
+    publicPath : './',
     filename   : '[chunkhash].app.js'
   },
   optimization: {
@@ -83,8 +83,8 @@ module.exports = merge(base, {
       title    : TITLE,
       minify   : {
         removeComments        : true,
-        collapseWhitespace    : false,
-        removeAttributeQuotes : false
+        collapseWhitespace    : true,
+        removeAttributeQuotes : true
       }
     }),
     // copy assets and manifest.json
