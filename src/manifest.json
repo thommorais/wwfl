@@ -6,7 +6,7 @@
   "display": "standalone",
   "background_color": "#FFF",
   "orientation": "portrait-primary",
-  "description": "Webpack 4 starter kit",
+  "description": "Word With Friends 2",
   "theme_color": "#ffd1dc",
   "icons": [
     {

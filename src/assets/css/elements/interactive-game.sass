@@ -10,6 +10,7 @@
     font-family: default-font(300)
 
   h2
+    margin-top: 0
     margin-bottom: 10px
     font-size: rem(22px)
 
@@ -33,6 +34,11 @@
   color: $c1
   font-weight: normal
   font-family: default-font(300)
+
+.answers
+  &.answered
+    .answer::after
+      animation: answereds 0.2s 0.5s $move forwards
 
 .answer
   position: relative
@@ -65,10 +71,6 @@
     transform-origin: 0
     transition: transform $enter 0.2s
     transform: scale3d(0, 1, 1)
-
-  &:hover
-    &::after
-      transform: scale3d(1, 1, 1)
 
   span
     color: $c5
@@ -121,9 +123,30 @@ h6
   color: $c0
   font-size: rem(16px)
   font-family: default-font(700)
+  text-decoration: none
+  overflow: hidden
+  .progress
+    position: absolute
+    z-index: 0
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    border-radius: 50px
+    background: darken($c6, 8)
+    transform-origin: 0
+    transform: scale3d(0, 1, 1)
 
   #icon-lupe
+    position: relative
     margin-right: 5px
     fill: $c0
     height: 28px
     width: 28px
+    pointer-events: none
+
+@keyframes answereds
+  0%
+    transform: scale3d(0, 1, 1)
+  100%
+    transform: scale3d(1, 1, 1)
