@@ -9,11 +9,15 @@ export default class Modal {
     this.modals = {}
     this.isOpen = null
     this.started = false
+    this.closeEvent = new Event('modalCloses', { bubbles: true })
   }
 
   close() {
     if (!this.isOpen) return
     this.isOpen.classList.remove('open')
+    if (this.currentModal === 'map') {
+      document.dispatchEvent(this.closeEvent)
+    }
   }
 
   open(modal) {
@@ -27,6 +31,7 @@ export default class Modal {
 
     this.modals[modal].classList.add('open')
     this.isOpen = this.modals[modal]
+    this.currentModal = modal
   }
 
   start() {

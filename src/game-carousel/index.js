@@ -21,13 +21,21 @@ export default function carousel(Swiper) {
   game.on('reachEnd', () => modal.start())
 
   const items = [0, 12, 24, 48]
-  const offset = items[Math.floor(Math.random() * items.length)]
 
-  const data = fetcher(REST_API, questionPath, offset)
-  data.then((response) => {
-    const [one, two] = response
-    console.log(one, two)
-    game.appendSlide(populateQA([one, two], game, modal))
-    game.init()
+  function start() {
+    const offset = items[Math.floor(Math.random() * items.length)]
+
+    fetcher(REST_API, questionPath, offset).then((response) => {
+      const [one, two] = response
+      game.appendSlide(populateQA([one, two], game, modal))
+      game.init()
+    })
+  }
+
+  start()
+
+  document.addEventListener('modalCloses', () => {
+    game.removeAllSlides()
+    start()
   })
 }
