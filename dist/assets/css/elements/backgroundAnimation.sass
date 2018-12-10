@@ -3,17 +3,10 @@
   top: 0
   left: 0
   width: 100%
-  max-width: 100%
-  min-height: 100%
+  height: 100%
   z-index: 1
-  &::before
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    content: ''
-    background: rgba($d2, 0.4)
+  overflow: hidden
+  background: rgba($d2, 0.4)
 
 .shapeSvg
   --ty: -60%
@@ -27,7 +20,6 @@
   will-change: transform
 
 .shape-one
-
   z-index: 3
   @include desktop
     --ty: -20%
