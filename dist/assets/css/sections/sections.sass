@@ -8,7 +8,10 @@
 
 section
   position: relative
-  padding: 0 2.5%
+  @include break-min(240px)
+    padding: 0 40px
+  @include break-min(769px)
+    padding: 0 2.5%
 
 main
   position: relative
