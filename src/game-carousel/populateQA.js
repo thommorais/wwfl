@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import handleAnswer from './handleAnswer'
 
 let questionTpl = null
@@ -9,33 +10,33 @@ export default function populateQA(arr, game, modal) {
   answerTpl = answerTpl || document.querySelector('#answer')
   linkTpl = linkTpl || document.querySelector('#oxford-link')
 
-  return arr.map(({ question, answers, oxfordLink }) => {
+  return arr.map(({ title, zynga_question_options, dictionary_link }) => {
     const cloneQuestion = document.importNode(questionTpl.content, true)
     const titleQuestion = cloneQuestion.querySelector('.question')
     const answersTpl = cloneQuestion.querySelector('.answers')
-    titleQuestion.innerText = question
+    titleQuestion.innerText = title.rendered
 
     const cloneLink = document.importNode(linkTpl.content, true)
     const a = cloneLink.querySelector('.oxford-explains-btn')
-    // a.insertAdjacentText('beforeend', oxfordLink)
-    a.href = oxfordLink
+    a.href = dictionary_link
 
-    answers.forEach(({ count, answer, isRight }) => {
+    zynga_question_options.forEach((data) => {
+      const { is_right } = data
       const cloneAnswer = document.importNode(answerTpl.content, true)
       const answerWrpTmp = cloneAnswer.querySelector('.answer')
 
       answerWrpTmp.style.setProperty('--size', `${Math.floor(Math.random() * 99) + 1}%`)
 
-      if (isRight) {
+      if (is_right) {
         answerWrpTmp.classList.add('right')
       }
 
       const titleAnswerTmp = cloneAnswer.querySelector('h6')
       const countAnswerTmp = cloneAnswer.querySelector('.count')
-      titleAnswerTmp.innerText = answer
-      countAnswerTmp.innerText = count
+      titleAnswerTmp.innerText = data.title
+      countAnswerTmp.innerText = 0
       answersTpl.appendChild(cloneAnswer)
-      handleAnswer({ answerWrpTmp, isRight }, modal, game, a, answersTpl)
+      handleAnswer({ answerWrpTmp, is_right }, modal, game, a, answersTpl)
     })
 
     answersTpl.appendChild(cloneLink)

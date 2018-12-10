@@ -1,0 +1,24 @@
+export default function backgroundAnimation() {
+  import(/* webpackChunkName:"basicscroll" */ 'basicScroll').then((module) => {
+    [].slice.call(document.querySelectorAll('.shape')).forEach((elem) => {
+      const {
+        modifier, y, from, to
+      } = elem.dataset
+      module
+        .create({
+          elem,
+          from,
+          to,
+          direct : true,
+          props  : {
+            '--ty': {
+              from   : `${y}%`,
+              to     : `${-(5 * modifier)}%`,
+              timing : t => t * t
+            }
+          }
+        })
+        .start()
+    })
+  })
+}

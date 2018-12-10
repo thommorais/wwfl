@@ -37,40 +37,52 @@
 
 .answers
   &.answered
-    .answer::after
+    .answer .values::after
       animation: answereds 0.2s 0.5s $move forwards
 
 .answer
-  position: relative
-  max-width: 320px;
-  margin: 0 auto 12px
-  padding: 12px 20px
+  max-width: 340px;
+  margin: 0 auto
+  padding: 6px
   border-radius: 50px
   overflow: hidden
   cursor: pointer
+  border: 1px solid rgba($c0, 0)
+  transition: 0.4s $enter background
+  &:hover
+    border-color: rgba($c0, 0.2)
+    background: rgba($c0, 0.2)
 
-  &.right::after
+
+  &:last-child
+    margin-bottom: 12px
+
+  &.right .values::after
     background: $c3
-  &.wrong::after
+  &.wrong .values::after
     background: $c2
 
-  &::after, &::before
-    position: absolute
-    left: 0
-    top: 0
-    z-index: 1
-    content: ''
-    height: 100%
-    border-radius: 50px
-  &::before
-    width: 100%
-    background: $c0
-  &::after
-    background: $c4
-    width: var(--size)
-    transform-origin: 0
-    transition: transform $enter 0.2s
-    transform: scale3d(0, 1, 1)
+  .values
+    position: relative
+    padding: 12px 20px
+
+    &::after, &::before
+      position: absolute
+      left: 0
+      top: 0
+      z-index: 1
+      content: ''
+      height: 100%
+      border-radius: 50px
+    &::before
+      width: 100%
+      background: $c0
+    &::after
+      background: $c4
+      width: var(--size)
+      transform-origin: 0
+      transition: transform $enter 0.2s
+      transform: scale3d(0, 1, 1)
 
   span
     color: $c5
@@ -109,6 +121,7 @@ h6
 
 .oxford-explains-btn
   position: relative
+  margin-top: 12px
   margin-left: auto
   margin-right: auto
   width: 100%
@@ -125,6 +138,9 @@ h6
   font-family: default-font(700)
   text-decoration: none
   overflow: hidden
+  transition: transform $move 0.2s
+  &:hover
+    transform: scale3d(1.02, 1.02, 1)
   .progress
     position: absolute
     z-index: 0

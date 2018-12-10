@@ -1,8 +1,9 @@
-export default function handleAnswer({ answerWrpTmp, isRight }, modal, carousel, oxfordLink, answers) {
+/* eslint-disable camelcase */
+export default function handleAnswer({ answerWrpTmp, is_right }, modal, carousel, oxfordLink, answers) {
   const timer = oxfordLink.querySelector('.progress')
 
   answerWrpTmp.addEventListener('click', () => {
-    if (isRight) {
+    if (is_right) {
       answerWrpTmp.classList.add('right')
     } else {
       answerWrpTmp.classList.add('wrong')
