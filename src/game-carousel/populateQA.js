@@ -1,20 +1,18 @@
 /* eslint-disable camelcase */
 import handleAnswer from './handleAnswer'
 
-let questionTpl = null
-let answerTpl = null
-let linkTpl = null
-
 export default function populateQA(arr, game, modal) {
-  questionTpl = questionTpl || document.querySelector('#question')
-  answerTpl = answerTpl || document.querySelector('#answer')
-  linkTpl = linkTpl || document.querySelector('#oxford-link')
+  const questionTpl = document.querySelector('#question')
+  const answerTpl = document.querySelector('#answer')
+  const linkTpl = document.querySelector('#oxford-link')
+  let theRightOne = null
 
   return arr.map(({ title, zynga_question_options, dictionary_link }) => {
     const cloneQuestion = document.importNode(questionTpl.content, true)
     const titleQuestion = cloneQuestion.querySelector('.question')
     const answersTpl = cloneQuestion.querySelector('.answers')
-    titleQuestion.innerText = title.rendered
+    const question = title.rendered
+    titleQuestion.innerText = question
 
     const cloneLink = document.importNode(linkTpl.content, true)
     const a = cloneLink.querySelector('.oxford-explains-btn')
@@ -28,15 +26,28 @@ export default function populateQA(arr, game, modal) {
       answerWrpTmp.style.setProperty('--size', `${Math.floor(Math.random() * 99) + 1}%`)
 
       if (is_right) {
-        answerWrpTmp.classList.add('right')
+        theRightOne = answerWrpTmp
       }
 
       const titleAnswerTmp = cloneAnswer.querySelector('h6')
       const countAnswerTmp = cloneAnswer.querySelector('.count')
-      titleAnswerTmp.innerText = data.title
+      const answer = data.title
+      titleAnswerTmp.innerText = answer
       countAnswerTmp.innerText = 0
       answersTpl.appendChild(cloneAnswer)
-      handleAnswer({ answerWrpTmp, is_right }, modal, game, a, answersTpl)
+      handleAnswer(
+        {
+          answerWrpTmp,
+          is_right,
+          question,
+          answer
+        },
+        modal,
+        game,
+        a,
+        answersTpl,
+        theRightOne
+      )
     })
 
     answersTpl.appendChild(cloneLink)

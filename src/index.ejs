@@ -249,10 +249,10 @@
     <div class="zynga-modal" data-id="prepared-to-play">
       <div class="modal-content">
         <h1 slot="md-title">
-          Are you in it to win it
+          Are you in it to win it?
         </h1>
         <div class="flex v-center sp-center">
-          <button class="response money" type="button">
+          <button class="response money" type="button" data-question="Are you in it to win it?" data-response='Give me the money'>
             <span>
               <svg id="icon-lupe" viewBox="0 0 120 120">
                 <use href="#ic-cash" /></svg>
@@ -260,7 +260,7 @@
               the money
             </span>
           </button>
-          <button class="response brain" type="button">
+          <button class="response brain" type="button" data-question="Are you in it to win it"  data-response='I like a challenge'>
             <span>
               <svg id="icon-lupe" viewBox="0 0 120 120">
                 <use href="#ic-brain" /></svg>
@@ -363,7 +363,15 @@
 
       </svg>
 
+      <script src="https://rawgit.com/web-animations/web-animations-js/master/web-animations.min.js"></script>
 
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130169630-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-130169630-1');
+      </script>
 
   </body>
 

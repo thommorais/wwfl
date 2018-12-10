@@ -25,8 +25,9 @@ export default function carousel(Swiper) {
 
   const data = fetcher(REST_API, questionPath, offset)
   data.then((response) => {
-    console.log(response)
-    game.appendSlide(populateQA(response, game, modal))
+    const [one, two] = response
+    console.log(one, two)
+    game.appendSlide(populateQA([one, two], game, modal))
     game.init()
   })
 }
