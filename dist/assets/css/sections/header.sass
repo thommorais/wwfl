@@ -1,5 +1,5 @@
 .logos
-  padding: 20px 0
+  padding: 20px 2.5%
   align-items: center
   justify-content: center
   .flex
@@ -8,11 +8,19 @@
       justify-content: center
       width: 100%
 
+  h2.only-mobile
+    display: block
+    margin-left: auto
+    margin-right: auto
+
 .join-title
   color: $c0
   text-align: center
-  font-size: rem(36px)
   font-family: default-font(700)
+  @include break-min(240px)
+    font-size: rem(24px)
+  @include break-min(769px)
+    font-size: rem(36px)
   @include desktop
     width: 500px
 
@@ -24,12 +32,22 @@ h2
 .wwf
   max-width: 320px
   height: auto
-  margin-left: 10px
+  @include break-min(769px)
+    margin-left: 10px
   @include break-max(769px)
-    width: 48%
+    width: calc(48% - 20px)
+    margin-left: 5px
+    margin-right: 20px
+
+.wwfl-logo
+  width: 48%
+  padding: 0 0 0 20px
+  border-left: 1px solid $c0
+
+  img
+    width: 100%
+    height: auto
 
 .wwfl
   max-width: 234px
   height: auto
-  @include break-max(769px)
-    width: 48%

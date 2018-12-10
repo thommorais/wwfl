@@ -31,20 +31,28 @@
     @include desktop
       width: 63%
 
+    @include break-min(240px)
+      &::before
+        top: 30%
+        height: 60%
+    @include break-min(768px)
+      &::before
+        top: 50%
+        height: 100%
     &::before
       position: absolute
       z-index: 1
-      top: 50%
       left: 50%
       transform: translate(-50%, -50%)
       content: ''
-      height: 100%
       width: 90%
       border-radius: 280px
       background-color: rgba(darken($c7, 10), 0.7)
       filter: blur(50px)
 
     h3
+      position: relative
+      z-index: 2
       color: $c0
       font-family: default-font(700)
       text-align: center
