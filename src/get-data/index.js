@@ -1,8 +1,8 @@
 /* eslint-disable no-else-return */
-export default function fetcher(baseURL, path) {
+export default function fetcher(baseURL, path, offset) {
   if ('fetch' in window) {
     return new Promise((resolve, reject) => {
-      fetch(baseURL + path)
+      fetch(baseURL + path + offset)
         .then((response) => {
           resolve(response.json().then(data => data))
         })
@@ -13,7 +13,7 @@ export default function fetcher(baseURL, path) {
       const axios = module.default
       const ax = axios.create({ baseURL })
       return async () => {
-        const response = await ax.get(path)
+        const response = await ax.get(path + offset)
         return response
       }
     })

@@ -65,6 +65,8 @@
   .values
     position: relative
     padding: 12px 20px
+    overflow: hidden
+    border-radius: 30px
 
     &::after, &::before
       position: absolute
@@ -89,16 +91,18 @@
     font-size: rem(14px)
     font-family: default-font(500)
 
-h6, span
-  position: relative
-  z-index: 2
-  text-shadow: none
-h6
-  margin: 0
-  display: block
-  font-size: rem(18px)
-  font-family: default-font(500)
-  font-weight: normal
+  h6, span
+    position: relative
+    z-index: 2
+    text-shadow: none
+  h6
+    margin: 0
+    display: block
+    font-size: rem(18px)
+    font-family: default-font(500)
+    font-weight: normal
+    text-align: left
+    flex: 1
 
 .question-counter
   position: relative
@@ -139,6 +143,7 @@ h6
   text-decoration: none
   overflow: hidden
   transition: transform $move 0.2s
+  will-change: transform
   &:hover
     transform: scale3d(1.02, 1.02, 1)
   .progress
@@ -149,7 +154,7 @@ h6
     height: 100%
     width: 100%
     border-radius: 50px
-    background: darken($c6, 8)
+    background: $c8
     transform-origin: 0
     transform: scale3d(0, 1, 1)
 

@@ -1,12 +1,11 @@
 .background-animation
-  position: absolute
+  position: fixed
   top: 0
   left: 0
   width: 100%
   max-width: 100%
-  min-height: 210vh
+  min-height: 100%
   z-index: 1
-  overflow: hidden
   &::before
     position: fixed
     top: 0
@@ -36,7 +35,7 @@
     transform: translate3d(var(--tx), var(--ty), 0)
   @include tablet
     --ty: 0%
-    --tx: 120%
+    --tx: 50%
     transform: translate3d(var(--tx), var(--ty), 0)
 
 .shape-two
@@ -57,5 +56,5 @@
   transform: translate3d(28%, var(--ty), 0)
 
 .shape-five
-  --ty: 185%
+  --ty: 45%
   transform: translate3d(-25%, var(--ty), 0)
