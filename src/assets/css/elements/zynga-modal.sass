@@ -14,18 +14,34 @@
     opacity: 0
     pointer-events: none
 
+  &.open .modal-content
+    transform: scale3d(1, 1, 1)
+
   .response
-    padding: 20px 10px
-    width: 130px
-    margin: 30px 10px 10px
-    border: 0
-    border-radius: 20px
-    color: $c0
-    font-family: default-font(300)
-    font-size: rem(19px)
-    &.money
+    margin: 30px 1px 0
+    padding: 10px
+    background: rgba($c0, 0)
+    border-radius: 24px
+    border: 1px solid rgba($c0, 0)
+    transition: 0.4s $enter background
+
+    &:hover
+      background: rgba($c0, 0.2)
+      border: 1px solid rgba($c0, 0.2)
+
+    span
+      display: block
+      padding: 20px 10px
+      width: 130px
+      border: 0
+      border-radius: 20px
+      color: $c0
+      font-family: default-font(300)
+      font-size: rem(19px)
+
+    &.money span
       background: $c8
-    &.brain
+    &.brain span
       background: $c9
     svg
       display: block
@@ -44,6 +60,9 @@
     border-radius: 50px
     background: $d1
     filter: drop-shadow(0 0 30px darken($d1, 25))
+    transition: 0.2s $enter transform
+    transform-origin: 50%
+    transform: scale3d(1.2, 1.2, 1)
     h1
       color: $c0
       text-align: center
@@ -87,19 +106,27 @@
 
 .close-modal
   position: absolute
-  top: 20px
-  right: 20px
-  height: 30px
-  width: 30px
-  background: transparent
-  border: 0
+  padding: 10px
+  top: 10px
+  right: 10px
+  height: 40px
+  width: 40px
+  background: rgba($c0, 0)
+  border: 1px solid rgba($c0, 0)
+  transition: 0.4s $enter background
+  border-radius: 30px
+
+  &:hover
+    border-color: rgba($c0, 0.2)
+    background: rgba($c0, 0.2)
+
   &::before, &::after
     position: absolute
     content: ''
     height: 4px
-    width: 100%
+    width: 30px
     top: 50%
-    left: 0
+    left: 5px
     margin-top: -2px
     background: $c0
     border-radius: 3px
