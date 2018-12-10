@@ -102,11 +102,11 @@ module.exports = merge(base, {
     ]),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(true)
+    }),
+    new OfflinePlugin({
+      ServiceWorker: {
+        minify: false
+      }
     })
-    // new OfflinePlugin({
-    //   ServiceWorker: {
-    //     minify: false
-    //   }
-    // })
   ]
 })
