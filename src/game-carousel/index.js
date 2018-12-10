@@ -7,6 +7,9 @@ export default function carousel(Swiper) {
   const modal = new Modal()
 
   const game = new Swiper('.swiper-container', {
+    fadeEffect: {
+      crossFade: true
+    },
     allowTouchMove : false,
     init           : false,
     pagination     : {
@@ -19,7 +22,8 @@ export default function carousel(Swiper) {
 
   const data = fetcher(REST_API, questionPath)
   data.then((response) => {
-    game.appendSlide(populateQA(response, game, modal))
+    const [item, two] = response
+    game.appendSlide(populateQA([item, two], game, modal))
     game.init()
   })
 }

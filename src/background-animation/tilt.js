@@ -3,7 +3,7 @@ export default function titlAnimation() {
   import(/* webpackChunkName:"vanilla-tilt" */ 'vanilla-tilt').then((module) => {
     module.init(document.querySelector('.background-animation'), {
       reverse               : false, // reverse the tilt direction
-      max                   : 2, // max tilt rotation (degrees)
+      max                   : 1, // max tilt rotation (degrees)
       perspective           : 100, // Transform perspective, the lower the more extreme the tilt gets.
       scale                 : 1, // 2 = 200%, 1.5 = 150%, etc..
       speed                 : 400, // Speed of the enter/exit transition

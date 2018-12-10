@@ -28,10 +28,16 @@
   will-change: transform
 
 .shape-one
-  --ty: 0
-  --tx: 120%
+
   z-index: 3
-  transform: translate3d(var(--tx), var(--ty), 0)
+  @include desktop
+    --ty: -20%
+    --tx: 170%
+    transform: translate3d(var(--tx), var(--ty), 0)
+  @include tablet
+    --ty: 0%
+    --tx: 120%
+    transform: translate3d(var(--tx), var(--ty), 0)
 
 .shape-two
   --ty: -47.2%
