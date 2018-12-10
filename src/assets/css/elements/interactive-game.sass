@@ -1,22 +1,37 @@
 #interactive-game_el
+  position: relative
   text-align: center
+  max-width: 100%
+  margin-left: auto
+  margin-right: auto
+
+  @include break-max(768px)
+    margin-top: 20px
+    padding-top: 20px
+    &::before
+      position: absolute
+      left: 10%
+      top: 0
+      height: 2px
+      width: 80%
+      background: $c0
+      content: ''
+      border-radius: 3px
 
   > h2, h3
     margin-top: 0
     color: $c0
     font-weight: normal
+
   h3
     font-size: rem(18px)
     font-family: default-font(300)
 
   h2
-    margin-top: 0
-    margin-bottom: 10px
+    margin: 0 auto 10px
     font-size: rem(22px)
-
-  @include break-max(769px)
-    margin: 0 auto
-    max-width: 100%
+    @include break-max(768px)
+      max-width: 80%
 
   @include desktop
     width: 37%
@@ -52,7 +67,6 @@
   &:hover
     border-color: rgba($c0, 0.2)
     background: rgba($c0, 0.2)
-
 
   &:last-child
     margin-bottom: 12px
