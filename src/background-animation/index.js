@@ -12,9 +12,8 @@ export default function backgroundAnimation() {
           direct : true,
           props  : {
             '--ty': {
-              from   : `${y}%`,
-              to     : `${-(5 * modifier)}%`,
-              timing : t => t * t
+              from : `${y}%`,
+              to   : `${-(10 * modifier)}%`
             }
           }
         })
