@@ -47,6 +47,7 @@ module.exports = merge(base, {
       template       : 'src/index.ejs',
       favicon        : 'favicon.ico', // or use favicons-webpack-plugin
       title          : TITLE,
+      url            : 'http://wwfl.fuerzastudio.com',
       chunksSortMode : 'dependency'
     }),
     new webpack.DefinePlugin({
