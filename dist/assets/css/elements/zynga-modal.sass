@@ -1,0 +1,138 @@
+.zynga-modal
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 9
+  height: 100%
+  width: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  background: rgba($c1, 0.7)
+
+  &:not(.open)
+    opacity: 0
+    pointer-events: none
+
+  &.open .modal-content
+    transform: scale3d(1, 1, 1)
+
+  .response
+    margin: 30px 1px 0
+    padding: 10px
+    background: rgba($c0, 0)
+    border-radius: 24px
+    border: 1px solid rgba($c0, 0)
+    transition: 0.4s $enter background
+
+    &:hover
+      background: rgba($c0, 0.2)
+      border: 1px solid rgba($c0, 0.2)
+
+    span
+      display: block
+      padding: 20px 10px
+      width: 130px
+      border: 0
+      border-radius: 20px
+      color: $c0
+      font-family: default-font(300)
+      font-size: rem(19px)
+      pointer-events: none
+
+    &.money span
+      background: $c8
+    &.brain span
+      background: $c9
+    svg
+      display: block
+      margin: 0 auto 10px
+      height: 50px
+      width: auto
+      fill: $c0
+
+  .modal-content
+    position: relative
+    margin: 0 auto
+    width: 90vw
+    max-width: 510px
+    min-height: 350px
+    padding: 40px
+    border-radius: 50px
+    background: $d1
+    filter: drop-shadow(0 0 30px darken($d1, 25))
+    transition: 0.2s $enter transform
+    transform-origin: 50%
+    transform: scale3d(1.2, 1.2, 1)
+    h1
+      color: $c0
+      text-align: center
+    .map-usa-wrp
+      position: relative
+      svg
+        width: 100%
+        height: 310px
+
+  .progress-bar-wrp
+    margin: 0 auto
+    width: 90%
+    min-width: 240px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    span
+      position: relative
+      margin-bottom: 10px
+      color: $c0
+      align-items: center
+      svg
+        position: absolute
+        fill: $c0
+        height: 20px
+  .progress-bar
+    width: 100%
+    height: 10px
+    border-radius: 5px
+    background-image: linear-gradient(90deg, $c8 0%, $c9 100%)
+
+.money-label
+  padding-left: 28px
+  svg
+    left: 0
+    top: -2px
+
+.challenge-label
+  padding-right: 28px
+  svg
+    right: 0
+
+.close-modal
+  position: absolute
+  padding: 10px
+  top: 10px
+  right: 10px
+  height: 40px
+  width: 40px
+  background: rgba($c0, 0)
+  border: 1px solid rgba($c0, 0)
+  transition: 0.4s $enter background
+  border-radius: 30px
+
+  &:hover
+    border-color: rgba($c0, 0.2)
+    background: rgba($c0, 0.2)
+
+  &::before, &::after
+    position: absolute
+    content: ''
+    height: 4px
+    width: 30px
+    top: 50%
+    left: 5px
+    margin-top: -2px
+    background: $c0
+    border-radius: 3px
+  &::before
+    transform: rotate(45deg)
+  &::after
+    transform: rotate(-45deg)
