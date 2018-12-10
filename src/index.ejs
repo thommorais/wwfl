@@ -44,8 +44,9 @@
           <div class="screenshots">
             <figure>
               <div class="video-wrapper">
-                  <video class="video-screenshot" autoplay muted loop preload>
-                    <source src="./assets/images/countdown-video.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+                  <video class="video-screenshot" playsinline  autoplay muted loop preload>
+                    <source src="./assets/images/countdown-video.mp4" type="video/mp4" />
+                    <source src="./assets/images/countdown-video.webm" type="video/webm"  />
                   </video>
               </div>
               <img class="screenshots-img" src="./assets/images/smart-phones.png" width="2502" height="1853" />
@@ -164,7 +165,7 @@
         <a href="#" class="oxford-explains-btn" rel="noopener" target="_blank">
           <i class="progress"></i>
           <svg id="icon-lupe" viewBox="0 0 24 24">
-            <use href="#ic-lupe" /></svg>
+            <use xlink:href="#ic-lupe" /></svg>
           <span>Oxford Dictionaries explains</span>
         </a>
       </template>
@@ -269,12 +270,12 @@
 
         <div class="progress-bar-wrp">
           <span class="flex money-label">
-            <svg id="icon-lupe" viewBox="0 0 120 120"><use href="#ic-cash" /></svg>
+            <svg id="icon-lupe" viewBox="0 0 120 120" height><use xlink:href="#ic-cash" /></svg>
             Money
           </span>
           <span class="flex challenge-label">
             Challenge
-            <svg id="icon-lupe" viewBox="0 0 120 120"><use href="#ic-brain" /></svg>
+            <svg id="icon-lupe" viewBox="0 0 120 120"><use xlink:href="#ic-brain" /></svg>
           </span>
           <div class="progress-bar"></div>
         </div>
@@ -290,7 +291,7 @@
           <button class="response money" type="button" data-question="Are you in it to win it?" data-response='Give me the money'>
             <span>
               <svg id="icon-lupe" viewBox="0 0 120 120">
-                <use href="#ic-cash" /></svg>
+                <use xlink:href="#ic-cash" /></svg>
               Give me<br />
               the money
             </span>
@@ -298,7 +299,7 @@
           <button class="response brain" type="button" data-question="Are you in it to win it"  data-response='I like a challenge'>
             <span>
               <svg id="icon-lupe" viewBox="0 0 120 120">
-                <use href="#ic-brain" /></svg>
+                <use xlink:href="#ic-brain" /></svg>
               I like a<br />
               challenge
             </span>
