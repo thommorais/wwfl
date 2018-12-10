@@ -18,3 +18,11 @@ import(/* webpackChunkName:"swiper" */ './lib/swiper.esm').then((module) => {
 })
 
 mapColors('#2051b5', '#c766ee')
+
+if (/(android)/i.test(navigator.userAgent)) {
+  const video = document.querySelector('video')
+  window.addEventListener('touchstart', function videoStart() {
+    video.play()
+    this.removeEventListener('touchstart', videoStart)
+  })
+}
