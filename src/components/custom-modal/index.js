@@ -20,7 +20,14 @@ export default class Modal {
     }
   }
 
-  open(modal) {
+  updateScore(element, data) {
+    const total = element.querySelector('.total')
+    const score = element.querySelector('.score')
+    total.innerText = data.total
+    score.innerText = data.score
+  }
+
+  open(modal, data) {
     if (!this.started || !modal) return
 
     this.close()
@@ -32,6 +39,11 @@ export default class Modal {
     this.modals[modal].classList.add('open')
     this.isOpen = this.modals[modal]
     this.currentModal = modal
+
+    if (modal === 'prepared-to-play') {
+      this.score = this.score || this.modals[modal].querySelector('.score-title')
+      this.updateScore(this.score, data)
+    }
   }
 
   start() {

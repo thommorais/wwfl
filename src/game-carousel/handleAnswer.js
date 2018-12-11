@@ -1,16 +1,13 @@
 /* eslint-disable camelcase */
+import { toCamelCase, isTheRightOne } from '../helper'
+
+const questionsState = {
+  getRight         : 0,
+  totalOfQuestions : 0
+}
+
+const carouselContainer = document.querySelector('.swiper-container')
 const frames = [{ transform: 'scale3d(0, 1, 1)' }, { transform: 'scale3d(1, 1, 1)' }]
-
-function isTheRightOne(answer, answers) {
-  const { isRight } = answers.find(item => item.title === answer)
-  return isRight
-}
-
-function toCamelCase(str) {
-  return str.replace(/(?:^.|[A-Z]|\b.)/g, (letter, index) => (index === 0 ? letter.toLowerCase() : letter.toUpperCase())).replace(/\s+/g, '')
-}
-
-const questionsState = {}
 
 export default function handleAnswer({ answerElements, answersData }, modal, carousel, oxfordLink, answersTpl, question) {
   const timer = oxfordLink.querySelector('.progress')
@@ -23,10 +20,10 @@ export default function handleAnswer({ answerElements, answersData }, modal, car
   answerElements.forEach(({ answerWrpTmp }) => {
     const { answer } = answerWrpTmp.dataset
 
+    const thisIsTheRightOne = isTheRightOne(answer, answersData)
+
     if (questionsState[questionCamelized]) {
-      questionsState[questionCamelized].rightAnswer = isTheRightOne(answer, answersData)
-        ? answerWrpTmp
-        : questionsState[questionCamelized].rightAnswer
+      questionsState[questionCamelized].rightAnswer = thisIsTheRightOne ? answerWrpTmp : questionsState[questionCamelized].rightAnswer
     }
 
     answerWrpTmp.addEventListener('click', () => {
@@ -36,7 +33,11 @@ export default function handleAnswer({ answerElements, answersData }, modal, car
 
       if (!isTheRightOne(answer, answersData)) {
         answerWrpTmp.classList.add('wrong')
+      } else {
+        questionsState.getRight += 1
       }
+
+      questionsState.totalOfQuestions += 1
 
       oxfordLink.classList.add('show')
       answersTpl.classList.add('answered')
@@ -52,9 +53,13 @@ export default function handleAnswer({ answerElements, answersData }, modal, car
 
       progressButton.onfinish = () => {
         if (carousel.isEnd) {
-          modal.open('prepared-to-play')
+          const { getRight, totalOfQuestions } = questionsState
+          modal.open('prepared-to-play', { score: getRight, total: totalOfQuestions })
+          questionsState.getRight = 0
+          questionsState.totalOfQuestions = 0
+        } else {
+          carouselContainer.classList.remove('hide-navigation')
         }
-        carousel.slideNext()
       }
     })
   })

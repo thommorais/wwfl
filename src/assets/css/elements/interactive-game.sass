@@ -5,6 +5,10 @@
   margin-left: auto
   margin-right: auto
 
+  @include desktop
+    width: 40%
+    padding: 0 20px
+
   @include break-max(768px)
     margin-top: 20px
     padding-top: 20px
@@ -33,11 +37,6 @@
     @include break-max(768px)
       max-width: 80%
 
-  @include desktop
-    width: 37%
-    max-width: 420px
-    padding: 0 20px
-
 .oxford-logo
   max-width: 180px
   height: auto
@@ -52,6 +51,9 @@
 
 .answers
   &.answered
+    .count
+      opacity: 1
+      transform: translate3d(0, 0, 0)
     .answer
       &.right .values
         border: 1px solid $c3
@@ -108,12 +110,15 @@
       transition: transform $enter 0.2s
       transform: scale3d(0, 1, 1)
 
-  span
+  .count
     color: $c5
     font-size: rem(14px)
     font-family: default-font(500)
+    opacity: 0
+    transform: translate3d(0, 2px, 0)
+    transition: 0.5s $enter opacity, 0.2s $exit transform
 
-  h6, span
+  h6, .count
     position: relative
     z-index: 2
     text-shadow: none
@@ -164,8 +169,7 @@
   font-family: default-font(700)
   text-decoration: none
   overflow: hidden
-  transition: transform $enter 0.2s, opacity $enter 0.4s
-  will-change: transform
+  transition: opacity $enter 0.4s, background $enter 0.4s
   &:not(.show)
     opacity: 0
     pointer-events: none
@@ -174,7 +178,7 @@
     position: relative
     pointer-events: none
   &:hover
-    transform: scale3d(1.02, 1.02, 1)
+    background: lighten($c6, 10)
   .progress
     position: absolute
     z-index: 0
@@ -200,3 +204,34 @@
     transform: scale3d(0, 1, 1)
   100%
     transform: scale3d(1, 1, 1)
+
+.hide-navigation .swiper-button-next
+  opacity: 0
+  pointer-events: none
+  transition: 0.1s $exit opacity
+
+.swiper-button-next
+  position: relative
+  margin: 10px auto 0
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100%
+  max-width: 320px
+  padding: 14px 0
+  z-index: 9
+  background-color: $d6
+  border-radius: 30px
+  transition: 0.2s $move opacity
+
+  &:hover
+    background-color: darken($d6, 10)
+
+  span
+    color: $c0
+    font-size: rem(16px)
+    font-family: default-font(700)
+
+  svg
+    margin-left: 5px
+    width: 10px

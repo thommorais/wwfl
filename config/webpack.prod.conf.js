@@ -10,7 +10,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
 const base = require('./webpack.base.conf')
 
-const TITLE = 'Word With Friends 2'
+const TITLE = 'Join the biggest LIVE event ever in Words With Friends - Word With Friends 2'
 
 module.exports = merge(base, {
   mode   : 'production',
