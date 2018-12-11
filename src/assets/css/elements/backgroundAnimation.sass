@@ -22,25 +22,25 @@
 
 .shape-one
   z-index: 3
-  @include desktop
+  @include break-between(1440px, 11240px)
     --ty: -20%
     --tx: 170%
     transform: translate3d(var(--tx), var(--ty), 0)
-  @include tablet
+  @include break-between(768px, 1440px)
     --ty: 0%
-    --tx: 50%
+    --tx: 120%
     transform: translate3d(var(--tx), var(--ty), 0)
 
 .shape-two
   --ty: -47.2%
   fill: rgba(74, 216, 251, 0.4)
-  filter: drop-shadow(0 2em 1em rgba(0, 0, 0, 0.4))
+  // filter: drop-shadow(0 2em 1em rgba(0, 0, 0, 0.4))
   transform: translate3d(78%, var(--ty), 0)
 
 .shape-three
   z-index: 2
   --ty: -22%
-  filter: drop-shadow(0 3em 3em rgba(#421F83, 0.4))
+  // filter: drop-shadow(0 3em 3em rgba(#421F83, 0.4))
   transform: translate3d(97%, var(--ty), 0)
 
 .shape-four
