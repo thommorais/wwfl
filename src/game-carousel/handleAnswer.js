@@ -27,7 +27,7 @@ export default function handleAnswer({ answerElements, answersData }, modal, car
         value          : 1
       })
 
-      const progressButton = timer.animate(frames, { duration: 1000, easing: 'cubic-bezier(0.5, 0, 0.5, 1)' })
+      const progressButton = timer.animate(frames, { duration: 3000, easing: 'cubic-bezier(0.5, 0, 0.5, 1)' })
 
       progressButton.onfinish = () => {
         if (carousel.isEnd) {
