@@ -6,15 +6,35 @@ function isTheRightOne(answer, answers) {
   return isRight
 }
 
+function toCamelCase(str) {
+  return str.replace(/(?:^.|[A-Z]|\b.)/g, (letter, index) => (index === 0 ? letter.toLowerCase() : letter.toUpperCase())).replace(/\s+/g, '')
+}
+
+const questionsState = {}
+
 export default function handleAnswer({ answerElements, answersData }, modal, carousel, oxfordLink, answersTpl, question) {
   const timer = oxfordLink.querySelector('.progress')
+  const questionCamelized = toCamelCase(question)
+
+  questionsState[questionCamelized] = {
+    answered: false
+  }
+
   answerElements.forEach(({ answerWrpTmp }) => {
     const { answer } = answerWrpTmp.dataset
 
+    if (questionsState[questionCamelized]) {
+      questionsState[questionCamelized].rightAnswer = isTheRightOne(answer, answersData)
+        ? answerWrpTmp
+        : questionsState[questionCamelized].rightAnswer
+    }
+
     answerWrpTmp.addEventListener('click', () => {
-      if (isTheRightOne(answer, answersData)) {
-        answerWrpTmp.classList.add('right')
-      } else {
+      if (questionsState[questionCamelized].answered) return
+      questionsState[questionCamelized].answered = true
+      questionsState[questionCamelized].rightAnswer.classList.add('right')
+
+      if (!isTheRightOne(answer, answersData)) {
         answerWrpTmp.classList.add('wrong')
       }
 

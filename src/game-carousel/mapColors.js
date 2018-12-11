@@ -8,5 +8,6 @@ export default function paintingMap(initialColor, secondColor) {
   const colors = colorsArray(initialColor, secondColor)
   const map = document.getElementById('usa-map')
   const paths = [].slice.call(map.querySelectorAll('path'))
-  paths.forEach(path => path.setAttribute('fill', colors[Math.floor(Math.random() * colors.length - 1) + 1]))
+  // Math.floor(Math.random() * colors.length - 1) + 1
+  paths.forEach(path => path.setAttribute('fill', colors[50]))
 }

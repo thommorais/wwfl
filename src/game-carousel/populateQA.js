@@ -34,16 +34,15 @@ export default function populateQA(arr, game, modal) {
     }))
 
     const answerElements = zynga_question_options.map((data) => {
-      const { is_right } = data
       const cloneAnswer = document.importNode(answerTpl.content, true)
       const answerWrpTmp = cloneAnswer.querySelector('.answer')
 
       const width = percentage(data.total_events, getTotalEvents(answersData)) || 0
       answerWrpTmp.style.setProperty('--size', `${width}%`)
 
-      if (is_right) {
-        answerWrpTmp.classList.add('right')
-      }
+      // if (is_right) {
+      //   answerWrpTmp.classList.add('right')
+      // }
 
       const titleAnswerTmp = cloneAnswer.querySelector('h6')
       const countAnswerTmp = cloneAnswer.querySelector('.count')
