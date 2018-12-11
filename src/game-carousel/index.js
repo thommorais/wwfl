@@ -24,9 +24,8 @@ export default function carousel(Swiper) {
     const offset = items[Math.floor(Math.random() * items.length)]
 
     fetcher(REST_API, questionPath, offset).then((response) => {
-      const questions = response.sort(() => 0.5 - Math.random())
-      // const [one, two] = questions
       gameCarousel = new Swiper('.swiper-container', carouselOptions)
+      const questions = response.sort(() => 0.5 - Math.random())
       gameCarousel.appendSlide(populateQA(questions, gameCarousel, modal))
       gameCarousel.on('reachEnd', () => modal.start())
       gameCarousel.init()

@@ -10,7 +10,6 @@ function percentage(partialValue, totalValue) {
 }
 
 export default function populateQA(arr, game, modal) {
-  console.log(arr)
   const questionTpl = document.querySelector('#question')
   const answerTpl = document.querySelector('#answer')
   const linkTpl = document.querySelector('#oxford-link')
