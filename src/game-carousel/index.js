@@ -26,9 +26,7 @@ export default function carousel(Swiper) {
     const offset = items[Math.floor(Math.random() * items.length)]
 
     fetcher(REST_API, questionPath, offset).then((response) => {
-      const [one, two] = response
-      console.log(one)
-      game.appendSlide(populateQA([one, two], game, modal))
+      game.appendSlide(populateQA(response, game, modal))
       game.init()
     })
   }

@@ -1,12 +1,20 @@
 /* eslint-disable camelcase */
 import handleAnswer from './handleAnswer'
 
+function getTotalEvents(answersData) {
+  return answersData.reduce((prev, curr) => prev + curr.events, 0)
+}
+
+function percentage(partialValue, totalValue) {
+  return (100 * partialValue) / totalValue
+}
+
 export default function populateQA(arr, game, modal) {
   const questionTpl = document.querySelector('#question')
   const answerTpl = document.querySelector('#answer')
   const linkTpl = document.querySelector('#oxford-link')
-  let theRightOne = null
 
+  // eslint-disable-next-line max-statements
   return arr.map(({ title, zynga_question_options, dictionary_link }) => {
     const cloneQuestion = document.importNode(questionTpl.content, true)
     const titleQuestion = cloneQuestion.querySelector('.question')
@@ -18,37 +26,39 @@ export default function populateQA(arr, game, modal) {
     const a = cloneLink.querySelector('.oxford-explains-btn')
     a.href = dictionary_link
 
-    zynga_question_options.forEach((data) => {
+    const answersData = zynga_question_options.map(data => ({
+      isRight : data.is_right,
+      events  : data.total_events,
+      title   : data.title
+    }))
+
+    const answerElements = zynga_question_options.map((data) => {
       const { is_right } = data
       const cloneAnswer = document.importNode(answerTpl.content, true)
       const answerWrpTmp = cloneAnswer.querySelector('.answer')
 
-      answerWrpTmp.style.setProperty('--size', `${Math.floor(Math.random() * 99) + 1}%`)
+      const width = percentage(data.total_events, getTotalEvents(answersData)) || 100
+      answerWrpTmp.style.setProperty('--size', `${width}%`)
 
       if (is_right) {
-        theRightOne = answerWrpTmp
+        answerWrpTmp.classList.add('right')
       }
 
       const titleAnswerTmp = cloneAnswer.querySelector('h6')
       const countAnswerTmp = cloneAnswer.querySelector('.count')
       const answer = data.title
       titleAnswerTmp.innerText = answer
+      answerWrpTmp.dataset.answer = answer
       countAnswerTmp.innerText = data.total_events
-      answersTpl.appendChild(cloneAnswer)
-      handleAnswer(
-        {
-          answerWrpTmp,
-          is_right,
-          question,
-          answer
-        },
-        modal,
-        game,
-        a,
-        answersTpl,
-        theRightOne
-      )
+      return {
+        answerWrpTmp,
+        cloneAnswer
+      }
     })
+
+    answerElements.forEach(element => answersTpl.appendChild(element.cloneAnswer))
+
+    handleAnswer({ answerElements, answersData }, modal, game, a, answersTpl, question)
 
     answersTpl.appendChild(cloneLink)
 
