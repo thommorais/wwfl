@@ -33,7 +33,7 @@ export default function populateQA(arr, game, modal) {
       const countAnswerTmp = cloneAnswer.querySelector('.count')
       const answer = data.title
       titleAnswerTmp.innerText = answer
-      countAnswerTmp.innerText = 0
+      countAnswerTmp.innerText = data.total_events
       answersTpl.appendChild(cloneAnswer)
       handleAnswer(
         {
