@@ -35,8 +35,13 @@ export default class Modal {
   }
 
   start() {
+    if (this.started) return
     this.started = true
     this.closeButtons = [].slice.call(document.querySelectorAll('.close-modal'))
     this.closeButtons.forEach(btn => btn.addEventListener('click', () => this.close()))
+  }
+
+  stop() {
+    this.started = false
   }
 }

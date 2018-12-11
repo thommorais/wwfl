@@ -105,7 +105,8 @@ module.exports = merge(base, {
     }),
     new OfflinePlugin({
       ServiceWorker: {
-        minify: false
+        minify     : false,
+        autoUpdate : 300
       }
     })
   ]

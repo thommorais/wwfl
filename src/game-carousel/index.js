@@ -7,18 +7,16 @@ export default function carousel(Swiper) {
   const modal = new Modal()
 
   const game = new Swiper('.swiper-container', {
-    fadeEffect: {
+    init       : false,
+    fadeEffect : {
       crossFade: true
     },
     allowTouchMove : false,
-    init           : false,
     pagination     : {
       el   : '.fraction',
       type : 'fraction'
     }
   })
-
-  game.on('reachEnd', () => modal.start())
 
   const items = [0, 12, 24, 48]
 
@@ -26,14 +24,17 @@ export default function carousel(Swiper) {
     const offset = items[Math.floor(Math.random() * items.length)]
 
     fetcher(REST_API, questionPath, offset).then((response) => {
-      game.appendSlide(populateQA(response, game, modal))
+      const questions = response.sort(() => 0.5 - Math.random())
+      game.appendSlide(populateQA(questions, game, modal))
       game.init()
     })
   }
 
   start()
+  game.on('reachEnd', () => modal.start())
 
   document.addEventListener('modalCloses', () => {
+    game.destroy(false, true)
     game.removeAllSlides()
     start()
   })
