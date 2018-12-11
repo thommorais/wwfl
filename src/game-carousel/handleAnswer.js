@@ -18,6 +18,7 @@ export default function handleAnswer({ answerElements, answersData }, modal, car
         answerWrpTmp.classList.add('wrong')
       }
 
+      oxfordLink.classList.add('show')
       answersTpl.classList.add('answered')
 
       // eslint-disable-next-line no-undef

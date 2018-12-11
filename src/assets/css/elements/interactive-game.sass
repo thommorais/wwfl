@@ -156,10 +156,15 @@
   font-family: default-font(700)
   text-decoration: none
   overflow: hidden
-  transition: transform $move 0.2s
+  transition: transform $enter 0.2s, opacity $enter 0.4s
   will-change: transform
+  &:not(.show)
+    opacity: 0
+    pointer-events: none
+    transform: translate3d(0, 5px, 0)
   span
     position: relative
+    pointer-events: none
   &:hover
     transform: scale3d(1.02, 1.02, 1)
   .progress
