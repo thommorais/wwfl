@@ -52,8 +52,15 @@
 
 .answers
   &.answered
-    .answer .values::after
-      animation: answereds 0.2s 0.5s $move forwards
+    .answer
+      &.right .values
+        border: 1px solid $c3
+      &.wrong .values
+        border: 1px solid $c2
+      .values
+        order: 1px solid $c4
+      .values::after
+        animation: answereds 0.2s 0.5s $move forwards
 
 .answer
   max-width: 340px;
@@ -80,7 +87,8 @@
     position: relative
     padding: 12px 20px
     overflow: hidden
-    border-radius: 30px
+    border-radius: 60px
+    border: 1px solid transparent
 
     &::after, &::before
       position: absolute
@@ -89,7 +97,7 @@
       z-index: 1
       content: ''
       height: 100%
-      border-radius: 50px
+      border-radius: 60px
     &::before
       width: 100%
       background: $c0
@@ -156,10 +164,15 @@
   font-family: default-font(700)
   text-decoration: none
   overflow: hidden
-  transition: transform $move 0.2s
+  transition: transform $enter 0.2s, opacity $enter 0.4s
   will-change: transform
+  &:not(.show)
+    opacity: 0
+    pointer-events: none
+    transform: translate3d(0, 5px, 0)
   span
     position: relative
+    pointer-events: none
   &:hover
     transform: scale3d(1.02, 1.02, 1)
   .progress
