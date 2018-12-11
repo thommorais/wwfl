@@ -1,7 +1,11 @@
 .logos
-  padding: 20px 2.5%
   align-items: center
   justify-content: center
+  @include break-between(240px, 768px)
+    padding: 0 2.5%
+  @include break-min(769px)
+    padding: 20px 2.5%
+
   .flex
     @include desktop
       align-items: center
