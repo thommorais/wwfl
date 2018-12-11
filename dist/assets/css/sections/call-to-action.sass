@@ -1,5 +1,8 @@
 .call-to-action
-  margin: 30px auto
+  @include break-between(240px, 768px)
+    margin: 0 auto
+  @include break-min(769px)
+    margin: 30px auto
 
   .video-wrapper
     position: absolute
