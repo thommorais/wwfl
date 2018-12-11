@@ -104,9 +104,10 @@ module.exports = merge(base, {
       PRODUCTION: JSON.stringify(true)
     }),
     new OfflinePlugin({
-      ServiceWorker: {
-        minify     : false,
-        autoUpdate : 300
+      autoUpdate    : 300,
+      AppCache      : false,
+      ServiceWorker : {
+        minify: false
       }
     })
   ]
