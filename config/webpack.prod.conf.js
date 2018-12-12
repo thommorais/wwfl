@@ -81,7 +81,7 @@ module.exports = merge(base, {
       template : 'src/index.ejs',
       favicon  : 'favicon.ico', // or use favicons-webpack-plugin
       title    : TITLE,
-      url      : 'http://wwfl.fuerzastudio.com',
+      url      : 'https://www.wordswithfriendslive.com/',
       minify   : {
         removeComments        : true,
         collapseWhitespace    : true,
@@ -104,7 +104,7 @@ module.exports = merge(base, {
       PRODUCTION: JSON.stringify(true)
     }),
     new OfflinePlugin({
-      autoUpdate     : 300,
+      autoUpdate     : 30,
       AppCache       : false,
       updateStrategy : 'all',
       ServiceWorker  : {
