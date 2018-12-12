@@ -10,9 +10,6 @@ if (PRODUCTION) {
   require('offline-plugin/runtime').install()
 }
 
-if (!isMobile.any()) {
-  backgroundAnimation()
-}
 // titlAnimation()
 
 import(/* webpackChunkName:"swiper" */ './lib/swiper.esm').then((module) => {
@@ -22,10 +19,9 @@ import(/* webpackChunkName:"swiper" */ './lib/swiper.esm').then((module) => {
 
 mapColors('#2051b5', '#c766ee')
 
-if (/(android)/i.test(navigator.userAgent)) {
+if (!isMobile.any()) {
+  backgroundAnimation()
+} else {
   const video = document.querySelector('video')
-  window.addEventListener('touchstart', function videoStart() {
-    video.play()
-    this.removeEventListener('touchstart', videoStart)
-  })
+  video.remove()
 }

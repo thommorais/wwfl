@@ -3,9 +3,7 @@ export default function fetcher(baseURL, path, offset) {
   if ('fetch' in window) {
     return new Promise((resolve, reject) => {
       fetch(baseURL + path + offset)
-        .then((response) => {
-          resolve(response.json().then(data => data))
-        })
+        .then(response => resolve(response.json().then(data => data)))
         .catch(() => reject(new Error('something bad happened')))
     })
   } else {
@@ -13,8 +11,8 @@ export default function fetcher(baseURL, path, offset) {
       const axios = module.default
       const ax = axios.create({ baseURL })
       return async () => {
-        const response = await ax.get(path + offset)
-        return response
+        const res = await ax.get(path + offset)
+        return res
       }
     })
   }
