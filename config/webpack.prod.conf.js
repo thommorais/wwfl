@@ -28,7 +28,7 @@ module.exports = merge(base, {
     minimizer: [
       new TerserPlugin({
         cache     : true,
-        parallel  : true,
+        parallel  : 3,
         sourceMap : false // set to true if you want JS source maps
       }),
       new OptimizeCSSAssetsPlugin({
@@ -93,7 +93,7 @@ module.exports = merge(base, {
       template : 'src/player/index.ejs',
       favicon  : 'favicon.ico', // or use favicons-webpack-plugin
       title    : TITLE,
-      url      : 'https://www.wordswithfriendslive.com/player/',
+      url      : 'https://www.wordswithfriendslive.com/',
       minify   : {
         removeComments        : true,
         collapseWhitespace    : true,

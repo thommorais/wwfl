@@ -19,10 +19,10 @@
 
   <!-- Apple -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <link rel="apple-touch-icon" href="./assets/images/touch-icon.png" />
+  <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.url %>/assets/images/touch-icon.png" />
 
   <!-- Android -->
-  <link rel="manifest" href="/manifest.json" />
+  <link rel="manifest" href="../manifest.json" />
 </head>
 
 <body>
@@ -32,29 +32,29 @@
         <h2 class="only-mobile">Coming soon inside <br /> Words with Friends</h2>
         <h2 class="only-desktop">Coming Soon in</h2>
         <a class="wwf-link" target="_blank" rel="noopener" href="https://t9jz.adj.st/2zmgJGC?wf_action=navigate&wf_screen=words_live&adjust_t=aryzk79&adjust_campaign=Q4WWFLIVELaunch&adjust_adgroup=Microsite&adjust_creative=GameIcons&adjust_deeplink=adjust_deeplink=https%3A%2F%2Fwordswithfriends.zyngawithfriends.com%2F%3Fwf_action%3Dnavigate%26wf_screen%3Dwords_live">
-          <img class="wwf" src="./assets/images/w2_logo.png" width="994" height="203" />
+          <img class="wwf" src="<%= htmlWebpackPlugin.options.url %>/assets/images/w2_logo.png" width="994" height="203" />
         </a>
         <div class="wwfl-logo only-mobile">
-          <img class="only-mobile" src="./assets/images/live-logo.svg" width="556" height="394" />
+          <img class="only-mobile" src="<%= htmlWebpackPlugin.options.url %>/assets/images/live-logo.svg" width="556" height="394" />
         </div>
 
       </div>
       <div class="flex v-center">
-        <img class="wwfl only-desktop" src="./assets/images/live-logo.svg" width="556" height="394" />
+        <img class="wwfl only-desktop" src="<%= htmlWebpackPlugin.options.url %>/assets/images/live-logo.svg" width="556" height="394" />
         <h1 class="join-title">Join the biggest LIVE event ever in Words With Friends</h1>
       </div>
     </header>
-    <d class="call-to-action">
+    <div class="call-to-action">
       <div class="container flex sp-between"">
           <div class=" screenshots">
         <figure>
           <div class="video-wrapper">
             <video class="video-screenshot" playsinline autoplay muted loop preload>
-              <source src="./assets/images/countdown-video.mp4" type="video/mp4" />
-              <source src="./assets/images/countdown-video.webm" type="video/webm" />
+              <source src="<%= htmlWebpackPlugin.options.url %>/assets/images/countdown-video.mp4" type="video/mp4" />
+              <source src="<%= htmlWebpackPlugin.options.url %>/assets/images/countdown-video.webm" type="video/webm" />
             </video>
           </div>
-          <img class="screenshots-img" src="./assets/images/smart-phones.png" width="2502" height="1853" />
+          <img class="screenshots-img" src="<%= htmlWebpackPlugin.options.url %>/assets/images/smart-phones.png" width="2502" height="1853" />
         </figure>
 
         <div class="sign-me-up only-mobile">
@@ -73,7 +73,7 @@
         <div id="interactive-game">
           <h2>Are you prepared enough to win?</h2>
           <h3>Test your linguistic proficiency</h3>
-          <img class="oxford-logo" src="./assets/images/oxford-logo.png" width="331" height="55" />
+          <img class="oxford-logo" src="<%= htmlWebpackPlugin.options.url %>/assets/images/oxford-logo.png" width="331" height="55" />
 
           <div class="question-counter flex v-center">
             <h5>Question <span class="fraction"></span></h5>
@@ -143,7 +143,7 @@
 
     <section class="word-with-friends centered">
       <a target="_blank" rel="noopener" href="https://t9jz.adj.st/2zmgJGC?wf_action=navigate&wf_screen=words_live&adjust_t=aryzk79&adjust_campaign=Q4WWFLIVELaunch&adjust_adgroup=Microsite&adjust_creative=GameIcons&adjust_deeplink=adjust_deeplink=https%3A%2F%2Fwordswithfriends.zyngawithfriends.com%2F%3Fwf_action%3Dnavigate%26wf_screen%3Dwords_live">
-        <img src="./assets/images/w2_logo.png" width="290" height="50" />
+        <img src="<%= htmlWebpackPlugin.options.url %>/assets/images/w2_logo.png" width="290" height="50" />
       </a>
     </section>
 
@@ -170,7 +170,7 @@
           <use xlink:href="#ic-lupe" /></svg>
         <span>Oxford Dictionaries explains</span>
       </a>
-      <img src="./assets/images/arrow-to-down.png" width="26" height="39" class="arrows-to-down" />
+      <img src="<%= htmlWebpackPlugin.options.url %>/assets/images/arrow-to-down.png" width="26" height="39" class="arrows-to-down" />
     </template>
 
   </main>
@@ -207,7 +207,7 @@
 
   <footer>
     <a href="https://www.oxforddictionaries.com/" rel="noopener" target="_blank">
-      <img src="./assets/images/oxford-logo.png" width="331" height="55" />
+      <img src="<%= htmlWebpackPlugin.options.url %>/assets/images/oxford-logo.png" width="331" height="55" />
     </a>
 
     <dfn id="copyright">&copy;2018 Zynga Inc. - All Rights Reserved</dfn>
