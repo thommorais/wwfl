@@ -93,7 +93,7 @@ module.exports = merge(base, {
       {
         from   : path.resolve(__dirname, '../src/assets'),
         to     : 'assets',
-        ignore : ['.*']
+        ignore : ['.*', 'css/*']
       },
       {
         from : path.resolve(__dirname, '../src/manifest.json'),
