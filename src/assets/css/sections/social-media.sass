@@ -26,24 +26,23 @@
     display: block
     border: 1px solid rgba($c0, 0)
     transition: 0.4s $enter background
-    @include break-min(769px)
-      padding: 9px
-    @include break-max(768px)
-      padding: 5px
-
     &:hover
       border-color: rgba($c0, 0.2)
       background: rgba($c0, 0.2)
+
+    @include break-min(769px)
+      padding: 9px
+    @include break-max(768px)
+      padding: 4px
+
   .social-item
     fill: $c0
     @include break-min(769px)
       height: 80px
       width: 80px
     @include break-max(768px)
-      height: 72px
-      width: 72px
-
-
+      height: 70px
+      width: 70px
 
   .hashtag
     display: block

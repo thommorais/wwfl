@@ -20,7 +20,6 @@
     "comment-whitespace-inside": null,
     "block-opening-brace-space-after" : null,
     "selector-list-comma-newline-after": "never-multi-line",
-    "no-duplicate-selectors" : null,
     "property-no-unknown": [true, {
       "ignoreProperties": ["contain", "appearance", "/^font-/"],
     }]

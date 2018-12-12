@@ -18,11 +18,13 @@
     height: auto
 
   .sign-me-up-btn
-    background: none
+    margin: 0 auto
+    display: table
     border-radius: 60px
     padding: 10px
     border: 1px solid rgba($c0, 0)
     transition: 0.4s $enter background
+    text-decoration: none
 
     &:hover
       border-color: rgba($c0, 0.2)
@@ -37,6 +39,7 @@
       color: $c7
       font-family: default-font(300)
       text-transform: uppercase
+      line-height: 1em
       @include break-min(769px)
         font-size: rem(36px)
       @include break-max(768px)

@@ -165,11 +165,14 @@
   border-radius: 50px
   background: $c6
   color: $c0
-  font-size: rem(16px)
+  font-size: rem(15px)
   font-family: default-font(700)
   text-decoration: none
   overflow: hidden
   transition: opacity $enter 0.4s, background $enter 0.4s
+  @include break-min(768px)
+    font-size: rem(16px)
+
   &:not(.show)
     opacity: 0
     pointer-events: none
@@ -223,6 +226,7 @@
   background-color: $d6
   border-radius: 30px
   transition: 0.2s $move opacity
+  cursor: pointer
 
   &:hover
     background-color: darken($d6, 10)

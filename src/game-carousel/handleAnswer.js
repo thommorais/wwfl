@@ -7,10 +7,8 @@ const questionsState = {
 }
 
 const carouselContainer = document.querySelector('.swiper-container')
-const frames = [{ transform: 'scale3d(0, 1, 1)' }, { transform: 'scale3d(1, 1, 1)' }]
 
 export default function handleAnswer({ answerElements, answersData }, modal, carousel, oxfordLink, answersTpl, question) {
-  const timer = oxfordLink.querySelector('.progress')
   const questionCamelized = toCamelCase(question)
 
   questionsState[questionCamelized] = {
@@ -42,25 +40,20 @@ export default function handleAnswer({ answerElements, answersData }, modal, car
       oxfordLink.classList.add('show')
       answersTpl.classList.add('answered')
 
+      if (carousel.isEnd) {
+        modal.open('prepared-to-play', { score: questionsState.getRight, total: questionsState.totalOfQuestions })
+        questionsState.getRight = 0
+        questionsState.totalOfQuestions = 0
+      } else {
+        carouselContainer.classList.remove('hide-navigation')
+      }
+
       // eslint-disable-next-line no-undef
       gtag('event', 'click_any_answer', {
         event_category : question,
         event_label    : answer,
         value          : 1
       })
-
-      const progressButton = timer.animate(frames, { duration: 3000, easing: 'cubic-bezier(0.5, 0, 0.5, 1)' })
-
-      progressButton.onfinish = () => {
-        if (carousel.isEnd) {
-          const { getRight, totalOfQuestions } = questionsState
-          modal.open('prepared-to-play', { score: getRight, total: totalOfQuestions })
-          questionsState.getRight = 0
-          questionsState.totalOfQuestions = 0
-        } else {
-          carouselContainer.classList.remove('hide-navigation')
-        }
-      }
     })
   })
 }
