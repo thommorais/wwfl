@@ -11,9 +11,15 @@
   will-change: transform
 
 .shapeSvg
-  --ty: -60%
-  transform: translate3d(36%, var(--ty), 0) rotate(6.2deg)
   opacity: 0.18
+  @include break-min(769px)
+    --ty: -60%
+    transform: translate3d(36%, var(--ty), 0) rotate(6.2deg)
+  @include break-max(768px)
+    --ty: -20%
+    height: 60vh
+    transform: translate3d(-35%, var(--ty), 0) rotate(6.2deg)
+
 
 .shapeSvg, .shape
   position: absolute
@@ -22,6 +28,7 @@
 
 .shape-one
   z-index: 3
+  transform: translate3d(var(--tx), var(--ty), 0)
   @include break-between(1440px, 11240px)
     --ty: -20%
     --tx: 170%
@@ -29,23 +36,42 @@
   @include break-between(768px, 1440px)
     --ty: 0%
     --tx: 120%
-    transform: translate3d(var(--tx), var(--ty), 0)
+  @include break-max(768px)
+    z-index: 9
+    max-height: 80vh
+    transform: translate3d(-25%, 65%, 0)
 
 .shape-two
-  --ty: -47.2%
   fill: rgba(74, 216, 251, 0.4)
   // filter: drop-shadow(0 2em 1em rgba(0, 0, 0, 0.4))
-  transform: translate3d(78%, var(--ty), 0)
+  @include break-min(769px)
+    --ty: -47.2%
+    transform: translate3d(78%, var(--ty), 0)
+  @include break-max(768px)
+    --ty: -5%
+    transform: translate3d(-12%, var(--ty), 0)
+    height: 38vh
+
 
 .shape-three
   z-index: 2
-  --ty: -22%
-  transform: translate3d(97%, var(--ty), 0)
+  @include break-min(769px)
+    --ty: -22%
+    transform: translate3d(97%, var(--ty), 0)
+  @include break-max(768px)
+    --ty: 13%
+    height: 50vh
+    transform: translate3d(-10%, var(--ty), 0)
 
 .shape-four
+  max-height: 100vh
   z-index: 1
-  --ty: -5%
-  transform: translate3d(28%, var(--ty), 0)
+  @include break-min(769px)
+    --ty: -4%
+    transform: translate3d(34%, var(--ty), 0)
+  @include break-max(768px)
+    --ty: -5%
+    transform: translate3d(-24%, var(--ty), 0)
 
 .shape-five
   --ty: 45%

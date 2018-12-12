@@ -31,6 +31,7 @@
 
   .screenshots
     position: relative
+    align-self: center
     @include desktop
       width: 60%
 
@@ -62,7 +63,10 @@
       font-size: rem(18px)
 
   .video-screenshot
-    position: relative
-    left: 50%
-    width: 30%
-    transform: translateX(-53.2%)
+    @include break-min(769px)
+      position: relative
+      left: 50%
+      width: 30%
+      transform: translateX(-53.2%)
+    @include break-max(768px)
+      display: none

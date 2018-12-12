@@ -3,7 +3,9 @@
   z-index: 3
   top: 50%
   left: 0
-  transform: translateY(-50%)
+  @include break-min(769px)
+    transform: translateY(-50%)
+
   h5
     margin: 0
     color: $d3

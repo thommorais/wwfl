@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { toCamelCase, isTheRightOne } from '../helper'
+import { toCamelCase, isTheRightOne } from '../helpers'
 
 const questionsState = {
   getRight         : 0,
