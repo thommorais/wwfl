@@ -5,10 +5,6 @@ import fetcher from '../get-data'
 import { percentage } from '../helpers'
 
 export default function paintingMap(initialColor, secondColor) {
-  // import(/* webpackChunkName:"chroma" */ 'chroma-js').then((chroma) => {
-  //   const colors = chroma.scale([initialColor, secondColor]).colors(100)
-  // })
-
   function getState(answer, state) {
     return answer.find(item => item['ga:region'] === state)
   }
@@ -37,7 +33,8 @@ export default function paintingMap(initialColor, secondColor) {
       } else if (giveMeTheMoneyPercent > iLikeAChallengePercent) {
         color = giveMeTheMoneyPercent - 1
       }
-      path.setAttribute('fill', colors[color])
+
+      path.setAttribute('fill', colors[parseInt(color, 10)])
     })
   })
 }

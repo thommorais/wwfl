@@ -1,49 +1,33 @@
 import Modal from '../components/custom-modal'
 import populateQA from './populateQA'
 import fetcher from '../get-data'
-import { REST_API, questionPath } from '../constants'
+import { REST_API, questionPath, offsetOfTriviaData } from '../constants'
 
-const carouselOptions = {
-  autoHeight : true,
-  init       : false,
-  fadeEffect : {
-    crossFade: true
-  },
-  allowTouchMove : false,
-  pagination     : {
-    el   : '.fraction',
-    type : 'fraction'
-  },
-  navigation: {
-    nextEl: '.swiper-button-next'
-  }
+export async function getTriviaQuestions() {
+  const offset = offsetOfTriviaData[Math.floor(Math.random() * offsetOfTriviaData.length)]
+  return fetcher(REST_API, questionPath, offset).then(response => response.sort(() => 0.5 - Math.random()))
 }
 
-let gameCarousel = null
-const items = [0, 12, 24, 48]
-
-export default function carousel(Swiper) {
+export default function trivia(gameCarousel, questionsData) {
   const modal = new Modal()
-  const carouselContainer = document.querySelector('.swiper-container')
 
-  function start() {
-    const offset = items[Math.floor(Math.random() * items.length)]
+  gameCarousel.init()
+  gameCarousel.on('reachEnd', () => modal.start())
+  gameCarousel.on('slideChange', () => gameCarousel.$el[0].classList.add('hide-navigation'))
 
-    fetcher(REST_API, questionPath, offset).then((response) => {
-      gameCarousel = new Swiper(carouselContainer, carouselOptions)
-      const questions = response.sort(() => 0.5 - Math.random())
-      gameCarousel.appendSlide(populateQA(questions, gameCarousel, modal))
-      gameCarousel.on('reachEnd', () => modal.start())
-      gameCarousel.on('slideChange', () => carouselContainer.classList.add('hide-navigation'))
-      gameCarousel.init()
+  function start(questionDataPromise) {
+    questionDataPromise.then((questions) => {
+      const slides = populateQA(questions, gameCarousel) || []
+      gameCarousel.appendSlide(slides)
+      gameCarousel.update()
+      gameCarousel.slideTo(0, 0)
     })
   }
 
-  start()
+  start(questionsData)
 
   document.addEventListener('modalCloses', () => {
     gameCarousel.removeAllSlides()
-    gameCarousel.destroy(true, true)
-    start()
+    start(getTriviaQuestions())
   })
 }

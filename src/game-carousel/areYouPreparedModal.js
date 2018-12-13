@@ -1,4 +1,5 @@
 import Modal from '../components/custom-modal'
+import { sendGaEvents } from '../GA-events'
 
 export default function areYouPreparedToPlay() {
   const modal = new Modal()
@@ -6,14 +7,7 @@ export default function areYouPreparedToPlay() {
 
   buttons.forEach(btn => btn.addEventListener('click', (event) => {
     modal.open('map')
-
     const { response, question } = event.target.dataset
-
-    // eslint-disable-next-line no-undef
-    gtag('event', 'click_final_answer', {
-      event_category : question,
-      event_label    : response,
-      value          : 1
-    })
+    sendGaEvents(question, response, 'click_final_answer')
   }))
 }

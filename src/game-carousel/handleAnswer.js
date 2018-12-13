@@ -1,16 +1,16 @@
 /* eslint-disable camelcase */
 import { toCamelCase, isTheRightOne } from '../helpers'
 import { sendGaEvents } from '../GA-events'
+import Modal from '../components/custom-modal'
 
 const questionsState = {
   getRight         : 0,
   totalOfQuestions : 0
 }
 
-const carouselContainer = document.querySelector('.swiper-container')
-
-export default function handleAnswer({ answerElements, answersData }, modal, carousel, oxfordLink, answersTpl, question) {
+export default function handleAnswer({ answerElements, answersData }, oxfordLink, carouselInstance, answersTpl, question) {
   const questionCamelized = toCamelCase(question)
+  const modal = new Modal()
 
   questionsState[questionCamelized] = {
     answered: false
@@ -27,6 +27,7 @@ export default function handleAnswer({ answerElements, answersData }, modal, car
 
     answerWrpTmp.addEventListener('click', () => {
       if (questionsState[questionCamelized].answered) return
+
       questionsState[questionCamelized].answered = true
       questionsState[questionCamelized].rightAnswer.classList.add('right')
 
@@ -41,12 +42,15 @@ export default function handleAnswer({ answerElements, answersData }, modal, car
       oxfordLink.classList.add('show')
       answersTpl.classList.add('answered')
 
-      if (carousel.isEnd) {
-        modal.open('prepared-to-play', { score: questionsState.getRight, total: questionsState.totalOfQuestions })
-        questionsState.getRight = 0
-        questionsState.totalOfQuestions = 0
+      if (carouselInstance.isEnd) {
+        // eslint-disable-next-line max-nested-callbacks
+        setTimeout(() => {
+          modal.open('prepared-to-play', { score: questionsState.getRight, total: questionsState.totalOfQuestions })
+          questionsState.getRight = 0
+          questionsState.totalOfQuestions = 0
+        }, 2000)
       } else {
-        carouselContainer.classList.remove('hide-navigation')
+        carouselInstance.$el[0].classList.remove('hide-navigation')
       }
       sendGaEvents(question, answer, 'click_any_answer')
     })

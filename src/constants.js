@@ -1,6 +1,25 @@
 export const REST_API = 'https://wwf.fuerzastudio.com/wp-json'
 export const questionPath = '/wp/v2/questions-api/?per_page=12&offset='
 export const mapStates = '/zynga/v1/reports/final-answer'
+
+export const carouselOptions = {
+  autoHeight : true,
+  init       : false,
+  fadeEffect : {
+    crossFade: true
+  },
+  allowTouchMove : false,
+  pagination     : {
+    el   : '.fraction',
+    type : 'fraction'
+  },
+  navigation: {
+    nextEl: '.swiper-button-next'
+  }
+}
+
+export const offsetOfTriviaData = [0, 12, 24, 48]
+
 export function colorsArray(initialColor, secondColor) {
   return [
     initialColor,

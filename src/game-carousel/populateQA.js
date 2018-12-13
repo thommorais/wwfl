@@ -2,7 +2,7 @@
 import handleAnswer from './handleAnswer'
 import { getTotalEvents, percentage } from '../helpers'
 
-export default function populateQA(arr, game, modal) {
+export default function populateQA(arr, carouselInstance) {
   const questionTpl = document.querySelector('#question')
   const answerTpl = document.querySelector('#answer')
   const linkTpl = document.querySelector('#oxford-link')
@@ -31,9 +31,6 @@ export default function populateQA(arr, game, modal) {
 
       const width = percentage(data.total_events + 1, getTotalEvents(answersData) + 3)
       answerWrpTmp.style.setProperty('--size', `${width}%`)
-      // if (is_right) {
-      //   answerWrpTmp.classList.add('right')
-      // }
 
       const titleAnswerTmp = cloneAnswer.querySelector('h6')
       const countAnswerTmp = cloneAnswer.querySelector('.count')
@@ -49,7 +46,7 @@ export default function populateQA(arr, game, modal) {
 
     answerElements.forEach(element => answersTpl.appendChild(element.cloneAnswer))
 
-    handleAnswer({ answerElements, answersData }, modal, game, a, answersTpl, question)
+    handleAnswer({ answerElements, answersData }, a, carouselInstance, answersTpl, question)
 
     answersTpl.appendChild(cloneLink)
 
