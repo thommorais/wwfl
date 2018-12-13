@@ -4,6 +4,7 @@ import areYouPreparedModal from './game-carousel/areYouPreparedModal'
 import mapColors from './game-carousel/mapColors'
 import backgroundAnimation from './background-animation'
 import { isMobile } from './helpers'
+import gaEvents from './GA-events'
 // import titlAnimation from './background-animation/tilt'
 
 if (PRODUCTION) {
@@ -15,9 +16,10 @@ if (PRODUCTION) {
 import(/* webpackChunkName:"swiper" */ './lib/swiper.esm').then((module) => {
   carousel(module.default)
   areYouPreparedModal()
+  mapColors('#2051b5', '#c766ee')
 })
 
-mapColors('#2051b5', '#c766ee')
+gaEvents()
 
 if (!isMobile.any()) {
   backgroundAnimation()

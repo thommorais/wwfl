@@ -15,3 +15,11 @@ export const isMobile = {
   Windows    : () => navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i),
   any        : () => isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()
 }
+
+export function getTotalEvents(answersData) {
+  return answersData.reduce((prev, curr) => prev + curr.events, 0)
+}
+
+export function percentage(partialValue, totalValue) {
+  return (100 * partialValue) / totalValue
+}

@@ -1,13 +1,6 @@
 /* eslint-disable camelcase */
 import handleAnswer from './handleAnswer'
-
-function getTotalEvents(answersData) {
-  return answersData.reduce((prev, curr) => prev + curr.events, 0)
-}
-
-function percentage(partialValue, totalValue) {
-  return (100 * partialValue) / totalValue
-}
+import { getTotalEvents, percentage } from '../helpers'
 
 export default function populateQA(arr, game, modal) {
   const questionTpl = document.querySelector('#question')
