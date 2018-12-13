@@ -18,7 +18,7 @@ module.exports = merge(base, {
   output : {
     path       : path.resolve(__dirname, '../dist'),
     publicPath : '/',
-    filename   : '[chunkhash].app.js',
+    filename   : '[chunkhash].app.js'
   },
   optimization: {
     splitChunks: {
@@ -83,13 +83,11 @@ module.exports = merge(base, {
       title    : TITLE,
       url      : 'https://www.wordswithfriendslive.com/',
       minify   : {
-        removeComments        : true,
-        collapseWhitespace    : true,
-        removeAttributeQuotes : true,
-        collapseWhitespace: true,
-        removeComments: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true
+        removeComments                : true,
+        collapseWhitespace            : true,
+        removeAttributeQuotes         : true,
+        removeScriptTypeAttributes    : true,
+        removeStyleLinkTypeAttributes : true
       }
     }),
     new HtmlWebpackPlugin({
@@ -116,11 +114,12 @@ module.exports = merge(base, {
       PRODUCTION: JSON.stringify(true)
     }),
     new OfflinePlugin({
-      autoUpdate     : 30,
+      autoUpdate     : 1000 * 60 * 60 * 2,
       AppCache       : false,
-      updateStrategy : 'all',
+      updateStrategy : 'changed',
       ServiceWorker  : {
-        minify: false
+        events : true,
+        minify : false
       }
     })
   ]
