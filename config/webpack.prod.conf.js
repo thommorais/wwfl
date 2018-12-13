@@ -116,7 +116,7 @@ module.exports = merge(base, {
     new OfflinePlugin({
       autoUpdate     : 1000 * 60 * 60 * 2,
       AppCache       : false,
-      updateStrategy : 'changed',
+      updateStrategy : 'all',
       ServiceWorker  : {
         events : true,
         minify : false
