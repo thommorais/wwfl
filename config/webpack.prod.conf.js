@@ -17,8 +17,8 @@ module.exports = merge(base, {
   // devtool : 'source-map', // remove this comment if you want JS source maps
   output : {
     path       : path.resolve(__dirname, '../dist'),
-    publicPath : './',
-    filename   : '[chunkhash].app.js'
+    publicPath : '/',
+    filename   : '[chunkhash].app.js',
   },
   optimization: {
     splitChunks: {
@@ -85,7 +85,11 @@ module.exports = merge(base, {
       minify   : {
         removeComments        : true,
         collapseWhitespace    : true,
-        removeAttributeQuotes : true
+        removeAttributeQuotes : true,
+        collapseWhitespace: true,
+        removeComments: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true
       }
     }),
     new HtmlWebpackPlugin({
@@ -93,12 +97,7 @@ module.exports = merge(base, {
       template : 'src/player/index.ejs',
       favicon  : 'favicon.ico', // or use favicons-webpack-plugin
       title    : TITLE,
-      url      : 'https://www.wordswithfriendslive.com/',
-      minify   : {
-        removeComments        : true,
-        collapseWhitespace    : true,
-        removeAttributeQuotes : true
-      }
+      url      : 'https://www.wordswithfriendslive.com/'
     }),
 
     // copy assets and manifest.json
