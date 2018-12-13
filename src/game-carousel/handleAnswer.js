@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import { toCamelCase, isTheRightOne } from '../helpers'
+import { sendGaEvents } from '../GA-events'
 
 const questionsState = {
   getRight         : 0,
@@ -47,13 +48,7 @@ export default function handleAnswer({ answerElements, answersData }, modal, car
       } else {
         carouselContainer.classList.remove('hide-navigation')
       }
-
-      // eslint-disable-next-line no-undef
-      gtag('event', 'click_any_answer', {
-        event_category : question,
-        event_label    : answer,
-        value          : 1
-      })
+      sendGaEvents(question, answer, 'click_any_answer')
     })
   })
 }

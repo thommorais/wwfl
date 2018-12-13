@@ -29,9 +29,8 @@ export default function populateQA(arr, game, modal) {
       const cloneAnswer = document.importNode(answerTpl.content, true)
       const answerWrpTmp = cloneAnswer.querySelector('.answer')
 
-      const width = percentage(data.total_events, getTotalEvents(answersData)) || 0
+      const width = percentage(data.total_events + 1, getTotalEvents(answersData) + 3)
       answerWrpTmp.style.setProperty('--size', `${width}%`)
-
       // if (is_right) {
       //   answerWrpTmp.classList.add('right')
       // }
@@ -41,7 +40,7 @@ export default function populateQA(arr, game, modal) {
       const answer = data.title
       titleAnswerTmp.innerText = answer
       answerWrpTmp.dataset.answer = answer
-      countAnswerTmp.innerText = data.total_events
+      countAnswerTmp.innerText = parseInt(data.total_events, 10) + 1
       return {
         answerWrpTmp,
         cloneAnswer
