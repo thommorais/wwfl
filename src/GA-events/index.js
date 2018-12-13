@@ -11,8 +11,8 @@ function sendGaEvents(event_category, event_label) {
 export default function gaEvents() {
   [].slice.call(document.querySelectorAll('[data-event]')).forEach((trigger) => {
     trigger.addEventListener('click', () => {
-      const { event, eventname } = trigger.dataset
-      sendGaEvents(event, eventname)
+      const { eventcategory, eventlabel } = trigger.dataset
+      sendGaEvents(eventcategory, eventlabel)
     })
   })
 }
