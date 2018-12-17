@@ -112,15 +112,6 @@ module.exports = merge(base, {
     ]),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(true)
-    }),
-    new OfflinePlugin({
-      autoUpdate     : 1000 * 60 * 60 * 2,
-      AppCache       : false,
-      updateStrategy : 'all',
-      ServiceWorker  : {
-        events : true,
-        minify : false
-      }
     })
   ]
 })
