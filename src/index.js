@@ -45,6 +45,4 @@ gaEvents()
 
 if (!isMobile.any()) {
   backgroundAnimation()
-} else {
-  document.querySelector('video').remove()
 }
