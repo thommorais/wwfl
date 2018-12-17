@@ -8,6 +8,9 @@ import { isMobile } from './helpers'
 import gaEvents from './GA-events'
 
 if (PRODUCTION) {
+  navigator.serviceWorker.getRegistrations()
+    .then(registrations => registrations.forEach(registration => registration.unregister()))
+
   const runtime = require('offline-plugin/runtime')
   runtime.install({
     onUpdating: () => {
