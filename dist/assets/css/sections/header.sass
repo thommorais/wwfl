@@ -25,6 +25,11 @@
   font-family: default-font(700)
   @include break-min(240px)
     font-size: rem(24px)
+  @include break-max(768px)
+    text-align: left
+    font-size: rem(20px)
+    width: 60%
+    float: left
   @include break-min(769px)
     font-size: rem(36px)
   @include desktop
@@ -41,9 +46,8 @@ h2
   @include break-min(769px)
     margin-left: 10px
   @include break-max(769px)
-    width: calc(48% - 20px)
-    margin-left: 5px
-    margin-right: 20px
+    width: calc(50% - 3px)
+    margin-left: 3px
 
 img.wwf
   width: 100%
@@ -53,10 +57,17 @@ img.wwf
   width: 48%
   padding: 0 0 0 20px
   border-left: 1px solid $c0
+  @include break-max(769px)
+    width: 100%
+    padding: 0 0 16px 0
 
   img
     width: 100%
     height: auto
+    @include break-max(769px)
+      width: calc(40% - 10px)
+      margin-right: 10px
+      float: left
 
 .wwfl
   max-width: 234px
