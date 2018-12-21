@@ -32,7 +32,7 @@ module.exports = {
     'max-depth': ['error', 2],
     'max-nested-callbacks': ['error', 2],
     'max-statements': ['error', 15],
-    'max-len': ['error', 150]
+    'max-len': ['error', 720]
   },
   settings: {
     flowtype: {

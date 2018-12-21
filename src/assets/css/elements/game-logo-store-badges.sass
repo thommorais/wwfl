@@ -16,24 +16,11 @@
       justify-content: center
       align-items: center
 
-  .game-icon
-    @include break-min(767px)
-      height: 75px
-      width: 75px
-    @include smartphone
-      height: 80px
-      width: 80px
-
-  .store-badge
-    display: block
-    margin: 0 0 0 10px
-    img
-      width: auto
-    @include break-min(767px)
-      img
-        height: 75px
-    @include smartphone
-      img
-        height: 35px
-
-
+.store-badge
+  display: block
+  margin: 0 0 0 10px
+  width: 45%
+  max-width: 245px
+  img
+    width: 100%
+    height: auto
