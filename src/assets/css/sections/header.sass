@@ -3,10 +3,10 @@
   z-index: 2
   align-items: center
   justify-content: center
-  @include break-between(240px, 768px)
-    padding: 0 2.5%
   @include break-min(769px)
     padding: 20px 2.5%
+  @include break-max(768px)
+    padding: 20px 2.5% 0
 
   .flex
     @include desktop
@@ -27,10 +27,9 @@
   @include break-min(240px)
     font-size: rem(24px)
   @include break-max(768px)
-    text-align: left
+    margin: 20px auto
+    text-align: center
     font-size: rem(20px)
-    width: 60%
-    float: left
   @include break-min(769px)
     font-size: rem(36px)
   @include desktop
@@ -64,10 +63,6 @@ img.wwf
   img
     width: 100%
     height: auto
-    @include break-max(769px)
-      width: calc(40% - 10px)
-      margin-right: 10px
-      float: left
 
 .wwfl
   max-width: 234px

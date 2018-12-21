@@ -6,6 +6,20 @@
   justify-content: center
   align-items: center
   flex-wrap: wrap
+
+  &.only-mobile
+    margin-bottom: 50px
+
+    &::after
+      position: absolute
+      left: 5%
+      bottom: -25px
+      content: ''
+      height: 2px
+      width: 90%
+      background: $c0
+      border-radius: 2px
+
   @include break-max(769px)
     &.only-desktop
       display: none
@@ -18,8 +32,8 @@
 
 .store-badge
   display: block
-  margin: 0 0 0 10px
-  width: 45%
+  margin: 0 0 0 2%
+  width: 48%
   max-width: 245px
   img
     width: 100%
