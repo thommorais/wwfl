@@ -1,0 +1,74 @@
+.logos
+  position: relative
+  z-index: 2
+  align-items: center
+  justify-content: center
+  @include break-between(240px, 768px)
+    padding: 0 2.5%
+  @include break-min(769px)
+    padding: 20px 2.5%
+
+  .flex
+    @include desktop
+      align-items: center
+      justify-content: center
+      width: 100%
+
+  h2.only-mobile
+    display: block
+    width: 50%
+    @include break-max(350px)
+      font-size: rem(20px)
+
+.join-title
+  color: $c0
+  text-align: center
+  font-family: default-font(700)
+  @include break-min(240px)
+    font-size: rem(24px)
+  @include break-max(768px)
+    text-align: left
+    font-size: rem(20px)
+    width: 60%
+    float: left
+  @include break-min(769px)
+    font-size: rem(36px)
+  @include desktop
+    width: 500px
+
+h2
+  color: $c0
+  text-align: center
+  font-family: default-font(700)
+
+.wwf-link
+  display: inline
+  max-width: 320px
+  @include break-min(769px)
+    margin-left: 10px
+  @include break-max(769px)
+    width: calc(50% - 3px)
+    margin-left: 3px
+
+img.wwf
+  width: 100%
+  height: auto
+
+.wwfl-logo
+  width: 48%
+  padding: 0 0 0 20px
+  @include break-max(769px)
+    width: 100%
+    padding: 0 0 16px 0
+
+  img
+    width: 100%
+    height: auto
+    @include break-max(769px)
+      width: calc(40% - 10px)
+      margin-right: 10px
+      float: left
+
+.wwfl
+  max-width: 234px
+  height: auto

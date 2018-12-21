@@ -1,0 +1,48 @@
+.flex
+  display: flex
+  flex-wrap: wrap
+  &.sp-between
+    justify-content: space-between
+  &.sp-center
+    justify-content: center
+  &.v-center
+    align-items: center
+
+.only-mobile
+  @include desktop
+    display: none !important
+
+.only-desktop
+  @include smartphone
+    display: none !important
+
+.container
+  position: relative
+  z-index: 1
+  max-width: 1180px
+  margin-left: auto
+  margin-right: auto
+
+.hidden
+  display: none
+
+button
+  outline: none
+
+h1, h2, h3, h4, h5, h6
+  font-weight: normal
+
+svg:not(.ntch) path
+  fill: inherit
+
+.iframe-container
+  position: relative
+  overflow: hidden
+  iframe
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border: 0
+

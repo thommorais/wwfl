@@ -1,0 +1,26 @@
+.game-logo-store-badges
+  position: relative
+  z-index: 9
+  margin: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-wrap: wrap
+  @include break-max(769px)
+    &.only-desktop
+      display: none
+
+  .store-badges
+    @include break-min(767px)
+      display: flex
+      justify-content: center
+      align-items: center
+
+.store-badge
+  display: block
+  margin: 0 0 0 10px
+  width: 45%
+  max-width: 245px
+  img
+    width: 100%
+    height: auto

@@ -1,0 +1,26 @@
+.word-with-friends
+  margin: 30px auto 40px
+
+  .logo
+    margin-bottom: 10px
+
+    @include break-min(769px)
+      max-width: 330px
+
+    @include break-max(768px)
+      max-width: 230px
+
+    img
+      width: 100%
+      height: auto
+
+  a
+    display: block
+    text-align: center
+    margin: 0 auto
+    color: $c0
+
+  img
+    margin: auto
+    height: auto
+    display: block

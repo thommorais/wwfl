@@ -1,0 +1,247 @@
+#interactive-game_el
+  position: relative
+  text-align: center
+  max-width: 100%
+
+  @include desktop
+    width: 44%
+    padding: 0 20px
+
+  @include break-max(768px)
+    margin-top: 20px
+    padding-top: 20px
+    &::before
+      position: absolute
+      left: 10%
+      top: 0
+      height: 2px
+      width: 80%
+      background: $c0
+      content: ''
+      border-radius: 3px
+
+  > h2, h3
+    margin-top: 0
+    color: $c0
+    font-weight: normal
+
+  h3
+    font-size: rem(18px)
+    font-family: default-font(300)
+
+  h2
+    margin: 0 auto 10px
+    font-size: rem(22px)
+    @include break-max(768px)
+      max-width: 80%
+
+.oxford-logo
+  max-width: 180px
+  height: auto
+
+.question
+  margin-left: auto
+  margin-right: auto
+  max-width: 330px
+  color: $c1
+  font-weight: normal
+  font-family: default-font(300)
+
+.answers
+  &.answered
+    .count
+      opacity: 1
+      transform: translate3d(0, 0, 0)
+    .answer
+      &.right .values
+        border: 1px solid $c3
+      &.wrong .values
+        border: 1px solid $c2
+      .values
+        order: 1px solid $c4
+      .values::after
+        animation: answereds 0.2s 0.5s $move forwards
+
+.answer
+  max-width: 340px;
+  margin: 0 auto
+  padding: 6px
+  border-radius: 50px
+  overflow: hidden
+  cursor: pointer
+  border: 1px solid rgba($c0, 0)
+  transition: 0.4s $enter background
+  &:hover
+    border-color: rgba($c0, 0.2)
+    background: rgba($c0, 0.2)
+
+  &:last-child
+    margin-bottom: 12px
+
+  &.right .values::after
+    background: $c3
+  &.wrong .values::after
+    background: $c2
+
+  .values
+    position: relative
+    padding: 12px 20px
+    overflow: hidden
+    border-radius: 60px
+    border: 1px solid transparent
+
+    &::after, &::before
+      position: absolute
+      left: 0
+      top: 0
+      z-index: 1
+      content: ''
+      height: 100%
+      border-radius: 60px
+    &::before
+      width: 100%
+      background: $c0
+    &::after
+      background: $c4
+      width: var(--size)
+      transform-origin: 0
+      transition: transform $enter 0.2s
+      transform: scale3d(0, 1, 1)
+
+  .count
+    color: $c5
+    font-size: rem(14px)
+    font-family: default-font(500)
+    opacity: 0
+    transform: translate3d(0, 2px, 0)
+    transition: 0.5s $enter opacity, 0.2s $exit transform
+
+  h6, .count
+    position: relative
+    z-index: 2
+    text-shadow: none
+  h6
+    margin: 0
+    display: block
+    font-size: rem(18px)
+    font-family: default-font(500)
+    font-weight: normal
+    text-align: left
+    flex: 1
+
+.question-counter
+  position: relative
+  margin: 15px auto 18px
+  max-width: 180px
+  text-align: center
+  color: $c1
+  font-size: rem(16px)
+  opacity: 0.5
+  h5
+    font-weight: normal
+    margin: 0 10px
+    text-shadow: none
+
+  &::after, &::before
+    content: ''
+    height: 1px
+    flex: 1
+    background: rgba($c1, 0.8)
+
+.oxford-explains-btn
+  position: relative
+  z-index: 2
+  margin-top: 12px
+  margin-left: auto
+  margin-right: auto
+  width: 100%
+  max-width: 320px
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 12px 30px
+  border: 0
+  border-radius: 50px
+  background: $c6
+  color: $c0
+  font-size: rem(15px)
+  font-family: default-font(700)
+  text-decoration: none
+  overflow: hidden
+  transition: opacity $enter 0.4s, background $enter 0.4s
+  @include break-min(768px)
+    font-size: rem(16px)
+
+  &:not(.show)
+    opacity: 0
+    pointer-events: none
+    transform: translate3d(0, 5px, 0)
+  span
+    position: relative
+    pointer-events: none
+  &:hover
+    background: lighten($c6, 10)
+  .progress
+    position: absolute
+    z-index: 0
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    border-radius: 50px
+    background: $c8
+    transform-origin: 0
+    transform: scale3d(0, 1, 1)
+
+  #icon-lupe
+    position: relative
+    margin-right: 5px
+    fill: $c0
+    height: 28px
+    width: 28px
+    pointer-events: none
+
+@keyframes answereds
+  0%
+    transform: scale3d(0, 1, 1)
+  100%
+    transform: scale3d(1, 1, 1)
+
+.hide-navigation .swiper-button-next
+  opacity: 0
+  pointer-events: none
+  transition: 0.1s $exit opacity
+
+.swiper-button-next
+  position: relative
+  margin: 10px auto 0
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100%
+  max-width: 320px
+  padding: 14px 0
+  z-index: 9
+  background-color: $d6
+  border-radius: 30px
+  transition: 0.2s $move opacity
+  cursor: pointer
+
+  &:hover
+    background-color: darken($d6, 10)
+
+  span
+    color: $c0
+    font-size: rem(16px)
+    font-family: default-font(700)
+
+  svg
+    margin-left: 5px
+    width: 10px
+
+.arrows-to-down
+  position: absolute
+  bottom: 10px
+  right: 50%
+  transform: translateX(50%)
+  z-index: 1
