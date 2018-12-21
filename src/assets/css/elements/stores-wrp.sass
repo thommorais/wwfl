@@ -15,11 +15,14 @@
 
   h3
     margin: 8px 0
-    font-size: rem(21.46px)
     &:not(.thin)
       font-family: default-font(700)
     &.thin
       font-family: default-font(500)
+    @include break-min(769px)
+      font-size: rem(21.46px)
+    @include break-max(768px)
+      font-size: rem(15px)
 
   h4
     margin: 0 0 8px
