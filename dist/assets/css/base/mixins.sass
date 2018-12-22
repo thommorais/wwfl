@@ -1,5 +1,5 @@
 $tablet-width: 768px
-$desktop-width: 800px
+$desktop-width: 768px
 $smartphone-width: 240px
 
 @mixin tablet
@@ -7,11 +7,11 @@ $smartphone-width: 240px
     @content
 
 @mixin desktop
-  @media (min-width: #{$desktop-width})
+  @media (min-width: #{$desktop-width + 1px})
     @content
 
 @mixin smartphone
-  @media (min-width: #{$smartphone-width}) and (max-width: #{$tablet-width - 1px})
+  @media (max-width: #{$tablet-width})
     @content
 
 @mixin break-between($min, $max)
