@@ -9,11 +9,11 @@
     align-items: center
 
 .only-mobile
-  @include desktop
+  @include break-min(769px)
     display: none !important
 
 .only-desktop
-  @include smartphone
+  @include break-max(768px)
     display: none !important
 
 .container
