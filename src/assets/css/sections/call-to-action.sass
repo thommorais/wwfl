@@ -19,7 +19,7 @@
       content: ''
       width: 100%
       display: block
-      padding: 7.7% 0 0
+      padding: 17% 0 0
 
   figure
     margin: 0
@@ -36,7 +36,8 @@
     position: relative
     align-self: center
     @include desktop
-      width: 60%
+      width: 45%
+      max-width: 390px
 
     @include break-min(240px)
       &::before
@@ -59,6 +60,7 @@
 
     h3
       position: relative
+      margin-top: -10px
       z-index: 2
       color: $c0
       font-family: default-font(700)
@@ -67,6 +69,5 @@
 
   .video-screenshot
     position: relative
-    left: 50%
-    width: 30%
-    transform: translateX(-53.2%)
+    left: 14.8%
+    width: 67.6%

@@ -6,6 +6,20 @@
   justify-content: center
   align-items: center
   flex-wrap: wrap
+
+  &.only-mobile
+    margin-bottom: 50px
+
+    &::after
+      position: absolute
+      left: 5%
+      bottom: -25px
+      content: ''
+      height: 2px
+      width: 90%
+      background: $c0
+      border-radius: 2px
+
   @include break-max(769px)
     &.only-desktop
       display: none
@@ -16,24 +30,11 @@
       justify-content: center
       align-items: center
 
-  .game-icon
-    @include break-min(767px)
-      height: 75px
-      width: 75px
-    @include smartphone
-      height: 80px
-      width: 80px
-
-  .store-badge
-    display: block
-    margin: 0 0 0 10px
-    img
-      width: auto
-    @include break-min(767px)
-      img
-        height: 75px
-    @include smartphone
-      img
-        height: 35px
-
-
+.store-badge
+  display: block
+  margin: 0 0 0 2%
+  width: 48%
+  max-width: 245px
+  img
+    width: 100%
+    height: auto
