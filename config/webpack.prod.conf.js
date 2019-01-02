@@ -90,15 +90,6 @@ module.exports = merge(base, {
         removeStyleLinkTypeAttributes : true
       }
     }),
-    // new HtmlWebpackPlugin({
-    //   filename : path.resolve(__dirname, '../dist/player/index.html'),
-    //   template : 'src/player/index.ejs',
-    //   favicon  : 'favicon.ico', // or use favicons-webpack-plugin
-    //   title    : TITLE,
-    //   url      : 'https://www.wordswithfriendslive.com/'
-    // }),
-
-    // copy assets and manifest.json
     new CopyWebpackPlugin([
       {
         from   : path.resolve(__dirname, '../src/assets'),
@@ -110,12 +101,19 @@ module.exports = merge(base, {
         to   : ''
       },
       {
-        from: path.resolve(__dirname, '../src/iheartradio.pdf'),
-        to: ''
+        from : path.resolve(__dirname, '../src/iheartradio.pdf'),
+        to   : ''
       }
     ]),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(true)
+    }),
+    new OfflinePlugin({
+      appShell      : 'network-first',
+      AppCache      : false,
+      ServiceWorker : {
+        minify: false
+      }
     })
   ]
 })

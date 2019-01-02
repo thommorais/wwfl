@@ -1,0 +1,27 @@
+.bullets
+  text-align: left
+  margin: 20px auto
+  @include break-min(769px)
+    display: flex
+    justify-content: center
+  @include break-max(768px)
+    max-width: 240px
+
+  li
+    position: relative
+    margin-bottom: 2px
+    line-height: 1.3em
+    padding-left: 20px
+    font-family: default-font(300)
+    @include break-min(769px)
+      margin-left: 20px
+
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 4px
+      height: 12px
+      width: 12px
+      border-radius: 12px
+      background: #04DADB

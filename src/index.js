@@ -8,7 +8,7 @@ import { isMobile } from './helpers'
 import gaEvents from './GA-events'
 
 if (PRODUCTION) {
-  console.log('hello')
+  require('offline-plugin/runtime').install()
 }
 
 const questionsData = getTriviaQuestions()
