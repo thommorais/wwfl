@@ -20,10 +20,6 @@ if (PRODUCTION) {
         }
       })
     }
-    navigator.serviceWorker.register('/sw.js').then((registration) => {
-      console.log('Registration succeeded.')
-      registration.update()
-    })
   }
 }
 
