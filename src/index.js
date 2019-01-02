@@ -11,8 +11,17 @@ if (PRODUCTION) {
   require('offline-plugin/runtime').install()
 
   if ('serviceWorker' in navigator) {
+    // eslint-disable-next-line max-depth
+    if (isMobile.any()) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        // eslint-disable-next-line no-restricted-syntax
+        for (const registration of registrations) {
+          registration.unregister()
+        }
+      })
+    }
     navigator.serviceWorker.register('/sw.js').then((registration) => {
-      console.log('Registration succeeded.');
+      console.log('Registration succeeded.')
       registration.update()
     })
   }
