@@ -1,0 +1,70 @@
+.main-copy
+  color: $c0
+  text-align: center
+
+  @include break-min(769px)
+    width: 40%
+    margin-bottom: 60px
+    &::after
+      position: absolute
+      content: ''
+      bottom: -30px
+      left: 50%
+      transform: translateX(-50%)
+      width: 90%
+      max-width: 300px
+      height: 2px
+      border-radius: 4px
+      background: $c0
+
+  @include break-max(768px)
+    width: 100%
+
+    .wwfl-live
+        margin: 0 auto
+        display: block
+        width: 130px
+        img
+          height: auto
+
+  h2
+    @include break-min(769px)
+      margin: 20px auto
+      font-size: rem(30px)
+    @include break-max(768px)
+      margin-bottom: 0
+
+  h3
+    margin: 8px 0
+    strong
+      font-family: default-font(700)
+    &:not(.thin)
+      font-family: default-font(700)
+    &.thin
+      font-family: default-font(500)
+    &.lighter
+      font-family: default-font(300)
+    @include break-min(769px)
+      font-size: rem(27px)
+      line-height: 1em
+    @include break-max(768px)
+      font-size: rem(15px)
+
+
+  h4
+    margin: 0 0 8px
+    @include break-min(769px)
+      font-size: rem(17px)
+    @include break-max(768px)
+      font-size: rem(15px)
+
+  img
+    max-width: 100%
+
+  small a
+    color: $c0
+
+  .wwf-link
+    @include break-min(769px)
+      display: block
+      margin: 20px auto
