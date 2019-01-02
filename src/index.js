@@ -9,6 +9,13 @@ import gaEvents from './GA-events'
 
 if (PRODUCTION) {
   require('offline-plugin/runtime').install()
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then((registration) => {
+      console.log('Registration succeeded.');
+      registration.update()
+    })
+  }
 }
 
 const questionsData = getTriviaQuestions()
