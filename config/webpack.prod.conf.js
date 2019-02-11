@@ -90,6 +90,20 @@ module.exports = merge(base, {
         removeStyleLinkTypeAttributes : true
       }
     }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, '../dist/player/index.html'),
+      template: 'src/player/index.ejs',
+      favicon: 'favicon.ico', // or use favicons-webpack-plugin
+      title: TITLE,
+      url: 'https://www.wordswithfriendslive.com/player/',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true
+      }
+    }),
     new CopyWebpackPlugin([
       {
         from   : path.resolve(__dirname, '../src/assets'),
