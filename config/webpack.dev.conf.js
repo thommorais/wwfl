@@ -40,17 +40,18 @@ module.exports = merge(base, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
+      template: 'src/player/index.ejs',
+      favicon: 'favicon.ico', // or use favicons-webpack-plugin
+      title: TITLE,
+      chunksSortMode: 'dependency'
+    }),
+
+    new HtmlWebpackPlugin({
       template       : 'src/index.ejs',
       favicon        : 'favicon.ico', // or use favicons-webpack-plugin
       title          : TITLE,
       chunksSortMode : 'dependency'
     }),
-     new HtmlWebpackPlugin({
-       template: 'src/player/index.ejs',
-       favicon: 'favicon.ico', // or use favicons-webpack-plugin
-       title: TITLE,
-       chunksSortMode: 'dependency'
-     }),
 
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(false)
