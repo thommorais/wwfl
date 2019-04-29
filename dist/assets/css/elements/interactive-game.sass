@@ -1,14 +1,13 @@
-#interactive-game_el
+#interactive-iheart,#interactive-game_el
   position: relative
   text-align: center
   max-width: 100%
 
   @include desktop
-    width: 32%
+    width: 37%
     padding: 0 20px
 
   @include break-max(768px)
-    margin-top: 20px
     padding-top: 20px
 
   > h2, h3
@@ -17,7 +16,7 @@
     font-weight: normal
 
   h3
-    font-size: rem(18px)
+    font-size: rem(17px)
     font-family: default-font(300)
 
   h2
@@ -54,7 +53,7 @@
         animation: answereds 0.2s 0.5s $move forwards
 
 .answer
-  max-width: 340px;
+  max-width: 340px
   margin: 0 auto
   padding: 6px
   border-radius: 50px
@@ -253,3 +252,46 @@
   right: 50%
   transform: translateX(50%)
   z-index: 1
+
+#interactive-garth
+  h2
+    font-family: 'museo_sans_rounded300', sans-serif
+    font-size: 30px
+
+    strong
+      font-family: 'museo_sans_rounded700', sans-serif
+
+  h3
+    font-size: 28px
+    color: $c0
+    text-align: center
+
+  .extra-life
+    margin-bottom: 25px
+    margin-top: 15px
+
+  iframe
+    position: relative
+    top: -4px
+
+  span
+    display: flex
+    justify-content: center
+    align-items: center
+    color: $c0
+    font-family: default-font(700)
+    background: #4E3DA0
+    width: 300px
+    border-radius: 5px
+    margin: 0 auto
+    height: 44px
+
+  .download-rules
+    color: white
+    text-decoration: none
+    display: inline-flex
+    @include break-max(1260px)
+      margin: 15px auto 17px
+
+#interactive-game_el
+  margin: 0 auto
