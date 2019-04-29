@@ -13,6 +13,7 @@ module.exports = {
     semi: 0,
     'no-console': 0,
     'global-require': 0,
+    "linebreak-style": 0,
     'no-use-before-define': 0,
     'no-underscore-dangle': 0,
     'class-methods-use-this': 0,
